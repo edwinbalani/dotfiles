@@ -1,0 +1,90 @@
+" edwinbalani's .vimrc
+
+" Vundle
+set nocompatible
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Raimondi/delimitMate'
+
+call vundle#end()
+filetype plugin indent on
+
+" Consolidate temporary files in a central spot
+set backupdir=~/.vim/tmp/backup
+set directory=~/.vim/tmp/swap
+
+" Always show Vim Airline
+set laststatus=2
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Set leader key and show when it's typed
+let mapleader = ","
+set showcmd
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Better tabs
+set tabstop=4       " \t characters in files are shown as 4 spaces
+set softtabstop=4   " Insert 4 spaces for <Tab> in Insert mode
+set shiftwidth=4    " >> and << commands move by 4 spaces too
+set shiftround      " >> and << correct funny indentation to 4 spaces
+set expandtab       " Always indent with spaces, not \t characters
+
+" Various display and insert mode options
+set nowrap      " No line wrapping
+set backspace=indent,eol,start  " Backspace across all boundaries
+set autoindent  " Auto-indent new lines
+set copyindent  " Follow previous line's indentation
+set showmatch   " Show matching brackets
+set ignorecase  " Ignore search case
+set smartcase   " Only ignore case if pattern is all-lowercase
+set smarttab    " Insert tabs following shiftwidth, not tabstop
+
+" Search options
+set hlsearch    " Highlight search matches
+set incsearch   " Move to search matches as you type
+nnoremap <leader>/ :nohlsearch<CR>   " Temporarily kill search highlighting
+
+set history=1000
+set undolevels=1000
+set title       " Let Vim manipulate the terminal title
+
+" Line numbering
+set number
+set relativenumber
+set numberwidth=5
+
+" Show lines that extend off-screen or with misbehaving whitespace
+set list
+set listchars=tab:.\ ,trail:.,extends:#,nbsp:.
+
+" Hide buffers instead of closing them
+set hidden
+
+" 'Dumb' paste mode hotkey
+set pastetoggle=<F3>
+
+" Quick .vimrc editing
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>

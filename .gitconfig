@@ -1,0 +1,13 @@
+[user]
+    email = edwinbalani@users.noreply.github.com
+    name = Edwin Balani
+[push]
+    default = simple
+[core]
+    autocrlf = input
+    editor = vim
+	excludesfile = ~/.gitignore
+[alias]
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
