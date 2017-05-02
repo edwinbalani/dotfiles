@@ -32,6 +32,7 @@ then
     then
         git clone --depth=1 https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
     fi
+    mkdir -p $HOME/.vim/tmp/{backup,swap}
     vim +BundleInstall +qall
 fi
 
