@@ -88,6 +88,13 @@ set number
 set relativenumber
 set numberwidth=5
 
+" Toggle relative line numbering
+nnoremap <leader>n :set relativenumber!<CR>
+
+" Keep Visual selection after indenting
+vnoremap > >gv
+vnoremap < <gv
+
 " Show lines that extend off-screen or with misbehaving whitespace
 set list
 set listchars=tab:.\ ,trail:.,extends:#,nbsp:.
