@@ -13,6 +13,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'nvie/vim-flake8'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,6 +28,9 @@ set directory=~/.vim/tmp/swap
 
 " Always show Vim Airline
 set laststatus=2
+
+" Set colour scheme
+" colorscheme
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -45,6 +52,9 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" NERDTree hotkey
+noremap <F4> :NERDTreeToggle<CR>
+
 " Better tabs
 set tabstop=4       " \t characters in files are shown as 4 spaces
 set softtabstop=4   " Insert 4 spaces for <Tab> in Insert mode
@@ -53,7 +63,7 @@ set shiftround      " >> and << correct funny indentation to 4 spaces
 set expandtab       " Always indent with spaces, not \t characters
 
 " Various display and insert mode options
-set nowrap      " No line wrapping
+set wrap        " Line wrapping
 set backspace=indent,eol,start  " Backspace across all boundaries
 set autoindent  " Auto-indent new lines
 set copyindent  " Follow previous line's indentation
@@ -85,7 +95,7 @@ vnoremap < <gv
 
 " Show lines that extend off-screen or with misbehaving whitespace
 set list
-set listchars=tab:.\ ,trail:.,extends:#,nbsp:.
+set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:#
 
 " Hide buffers instead of closing them
 set hidden

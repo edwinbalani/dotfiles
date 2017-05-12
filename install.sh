@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+# A reliable way of getting the current directory name
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# First, update the dotfiles themselves (if they were git cloned in the first place)
 [ -d "$DOTFILES_DIR/.git" ] && git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master
 
 # Arguments for ln
@@ -21,18 +23,29 @@ while getopts "vib" args; do
             ;;
     esac
 done
-
 LINK_CMD="ln $params"
 
-# Don't bother with vim stuff if it isn't installed
+# Only install vim stuff if vim is installed
 if ( hash vim 2>/dev/null )
 then
-    $LINK_CMD "$DOTFILES_DIR/.vimrc" ~
+    # Make necessary (sub)directories
+    mkdir -p $HOME/.vim/colors
+    mkdir -p $HOME/.vim/tmp/{backup,swap}
+
+    # Link config and colour theme
+    $LINK_CMD "$DOTFILES_DIR/.vimrc" "$HOME"
+    if ( hash gvim 2>/dev/null )
+    then
+        $LINK_CMD "$DOTFILES_DIR/.gvimrc" "$HOME"
+        $LINK_CMD "$DOTFILES_DIR/darktooth.vim" "$HOME/.vim/colors/"
+    fi
+
+    # Install Vundle if not already installed
     if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]
     then
-        git clone --depth=1 https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+        git clone --depth=1 https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
     fi
-    mkdir -p $HOME/.vim/tmp/{backup,swap}
+    # Download plugins with Vundle
     vim +BundleInstall +qall
 fi
 
