@@ -17,6 +17,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 filetype plugin indent on
@@ -63,7 +64,7 @@ set shiftround      " >> and << correct funny indentation to 4 spaces
 set expandtab       " Always indent with spaces, not \t characters
 
 " Various display and insert mode options
-set wrap        " Line wrapping
+set nowrap        " No line wrapping
 set backspace=indent,eol,start  " Backspace across all boundaries
 set autoindent  " Auto-indent new lines
 set copyindent  " Follow previous line's indentation
