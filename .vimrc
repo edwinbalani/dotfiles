@@ -127,20 +127,20 @@ nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Working with assembly in general
-autocmd FileType asm,s nnoremap ,a :e %:r.asm<CR>
-autocmd FileType asm,s nnoremap ,l :e %:r.lst<CR>
+autocmd FileType asm,s nnoremap <leader>a :e %:r.asm<CR>
+autocmd FileType asm,s nnoremap <leader>l :e %:r.lst<CR>
 autocmd FileType asm,s set tabstop=8
 autocmd FileType asm,s set shiftwidth=8
 autocmd FileType asm,s set shiftround
 autocmd FileType asm,s set noexpandtab
 
 " Working with PIC assembly specifically
-autocmd FileType asm nnoremap ,p :w<CR>:!echo;echo;gpasm %:r.asm && pickit %:r.hex<CR>
-autocmd FileType asm nnoremap ,m :w<CR>:!gpasm -m %:r.asm<CR>
+autocmd FileType asm nnoremap <leader>p :w<CR>:!echo;echo;gpasm %:r.asm && pickit %:r.hex<CR>
+autocmd FileType asm nnoremap <leader>m :w<CR>:!gpasm -m %:r.asm<CR>
 
 " Working with AVR assembly specifically
-autocmd FileType s nnoremap ,p :w<CR>:echoe "TODO: add assemble+flash commands"<CR>
-autocmd FileType s nnoremap ,m :w<CR>:echoe "TODO: add memory dump command"<CR>
+autocmd FileType s nnoremap <leader>p :w<CR>:echoe "TODO: add assemble+flash commands"<CR>
+autocmd FileType s nnoremap <leader>m :w<CR>:echoe "TODO: add memory dump command"<CR>
 
 " Write/preview Pandoc output with "notes" template
 nnoremap <leader>nw :Pandoc #notes<CR>
