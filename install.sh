@@ -49,7 +49,7 @@ then
         git clone --depth=1 https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
     fi
     # Download plugins with Vundle
-    vim +BundleInstall +qall
+    vim +PluginUpdate +qall
 fi
 
 # Other config files
