@@ -14,7 +14,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ajh17/VimCompletesMe'
-Plugin 'SirVer/ultisnips'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
@@ -22,6 +21,8 @@ Plugin 'hdima/python-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -65,7 +66,7 @@ noremap <F4> :NERDTreeToggle<CR>
 
 " CtrlP bindings
 nnoremap <leader>f :CtrlPBuffer<CR>
-nnoremap <leader>n :CtrlPFunky<CR>
+nnoremap <leader>k :CtrlPFunky<CR>
 nnoremap <leader>l :CtrlPLine<CR>
 
 " Tab settings
@@ -100,7 +101,7 @@ set relativenumber
 set numberwidth=5
 
 " Toggle relative line numbering
-nnoremap <leader>rn :set relativenumber!<CR>
+nnoremap <leader>xx :set relativenumber!<CR>
 
 " Keep Visual selection after indenting
 vnoremap > >gv
@@ -144,6 +145,6 @@ autocmd FileType s nnoremap <leader>p :w<CR>:echoe "TODO: add assemble+flash com
 autocmd FileType s nnoremap <leader>m :w<CR>:echoe "TODO: add memory dump command"<CR>
 
 " Write/preview Pandoc output with "notes" template
-nnoremap <leader>nw :Pandoc #notes<CR>
-nnoremap <leader>np :Pandoc! #notes<CR>
+autocmd FileType pandoc nnoremap <leader>nw :Pandoc #notes<CR>
+autocmd FileType pandoc nnoremap <leader>np :Pandoc! #notes<CR>
 
