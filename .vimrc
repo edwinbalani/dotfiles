@@ -18,6 +18,10 @@ Plugin 'SirVer/ultisnips'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'hdima/python-syntax'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'tacahiroy/ctrlp-funky'
 
 call vundle#end()
 filetype plugin indent on
@@ -29,6 +33,9 @@ set directory=~/.vim/tmp/swap
 
 " Always show Vim Airline
 set laststatus=2
+
+" Set concealing (mainly for Markdown currently)
+set conceallevel=2
 
 " Set colour scheme
 " colorscheme
@@ -56,6 +63,10 @@ nnoremap <Down> :echoe "Use j"<CR>
 " NERDTree hotkey
 noremap <F4> :NERDTreeToggle<CR>
 
+" CtrlP bindings
+nnoremap <leader>f :CtrlPBuffer<CR>
+nnoremap <leader>n :CtrlPFunky<CR>
+nnoremap <leader>l :CtrlPLine<CR>
 " Better tabs
 set tabstop=4       " \t characters in files are shown as 4 spaces
 set softtabstop=4   " Insert 4 spaces for <Tab> in Insert mode
@@ -104,6 +115,13 @@ set hidden
 " 'Dumb' paste mode hotkey
 set pastetoggle=<F3>
 
+" Better Python syntax highlighting
+let python_highlight_all=1
+
+" Pandoc editing
+"let g:pandoc#command#autoexec_on_writes=1
+"let g:pandoc#command#autoexec_command = "Pandoc! pdf"
+
 " Quick .vimrc editing
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -123,4 +141,8 @@ autocmd FileType asm nnoremap ,m :w<CR>:!gpasm -m %:r.asm<CR>
 " Working with AVR assembly specifically
 autocmd FileType s nnoremap ,p :w<CR>:echoe "TODO: add assemble+flash commands"<CR>
 autocmd FileType s nnoremap ,m :w<CR>:echoe "TODO: add memory dump command"<CR>
+
+" Write/preview Pandoc output with "notes" template
+nnoremap <leader>nw :Pandoc #notes<CR>
+nnoremap <leader>np :Pandoc! #notes<CR>
 
