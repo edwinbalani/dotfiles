@@ -67,8 +67,9 @@ noremap <F4> :NERDTreeToggle<CR>
 nnoremap <leader>f :CtrlPBuffer<CR>
 nnoremap <leader>n :CtrlPFunky<CR>
 nnoremap <leader>l :CtrlPLine<CR>
-" Better tabs
-set tabstop=4       " \t characters in files are shown as 4 spaces
+
+" Tab settings
+set tabstop=8       " \t characters in files are shown as 4 spaces
 set softtabstop=4   " Insert 4 spaces for <Tab> in Insert mode
 set shiftwidth=4    " >> and << commands move by 4 spaces too
 set shiftround      " >> and << correct funny indentation to 4 spaces
@@ -99,7 +100,7 @@ set relativenumber
 set numberwidth=5
 
 " Toggle relative line numbering
-nnoremap <leader>n :set relativenumber!<CR>
+nnoremap <leader>rn :set relativenumber!<CR>
 
 " Keep Visual selection after indenting
 vnoremap > >gv
@@ -123,7 +124,7 @@ let python_highlight_all=1
 "let g:pandoc#command#autoexec_command = "Pandoc! pdf"
 
 " Quick .vimrc editing
-nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>ev :tabe $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Working with assembly in general
