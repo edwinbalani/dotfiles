@@ -53,7 +53,7 @@ then
 fi
 
 # Other config files
-for f in .gitconfig;
+for f in .gitconfig .tmux.conf;
 do
     $LINK_CMD $DOTFILES_DIR/$f $HOME/$f
 done
