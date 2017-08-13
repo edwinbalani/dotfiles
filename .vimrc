@@ -23,10 +23,27 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'hashivim/vim-terraform'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'juliosueiras/vim-terraform-completion'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
 call vundle#end()
 filetype plugin indent on
 syntax on
+
+" Enable mouse support in all ('a') modes
+set mouse=a
+
+" Syntastic Config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Consolidate temporary files in a central spot
 set backupdir=~/.vim/tmp/backup
@@ -70,7 +87,7 @@ nnoremap <leader>k :CtrlPFunky<CR>
 nnoremap <leader>l :CtrlPLine<CR>
 
 " Tab settings
-set tabstop=8       " \t characters in files are shown as 4 spaces
+set tabstop=8       " \t characters in files are shown as 8 spaces
 set softtabstop=4   " Insert 4 spaces for <Tab> in Insert mode
 set shiftwidth=4    " >> and << commands move by 4 spaces too
 set shiftround      " >> and << correct funny indentation to 4 spaces
@@ -100,7 +117,8 @@ set number
 set relativenumber
 set numberwidth=5
 
-" Toggle relative line numbering
+" Toggle line numbering options
+nnoremap <leader>xn :set number!<CR>
 nnoremap <leader>xx :set relativenumber!<CR>
 
 " Keep Visual selection after indenting
@@ -109,7 +127,8 @@ vnoremap < <gv
 
 " Show lines that extend off-screen or with misbehaving whitespace
 set list
-set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:#
+set listchars=tab:⋅\ ,trail:⋅,nbsp:⋅,extends:#
+"set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:#
 
 " Hide buffers instead of closing them
 set hidden
@@ -128,6 +147,9 @@ let python_highlight_all=1
 nnoremap <leader>ev :tabe $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" cd to current file's directory
+nnoremap <leader>xc :cd %:h<CR>
+
 " Working with assembly in general
 autocmd FileType asm,s nnoremap <leader>a :e %:r.asm<CR>
 autocmd FileType asm,s nnoremap <leader>l :e %:r.lst<CR>
@@ -144,7 +166,13 @@ autocmd FileType asm nnoremap <leader>m :w<CR>:!gpasm -m %:r.asm<CR>
 autocmd FileType s nnoremap <leader>p :w<CR>:echoe "TODO: add assemble+flash commands"<CR>
 autocmd FileType s nnoremap <leader>m :w<CR>:echoe "TODO: add memory dump command"<CR>
 
-" Write/preview Pandoc output with "notes" template
-autocmd FileType pandoc nnoremap <leader>nw :Pandoc #notes<CR>
-autocmd FileType pandoc nnoremap <leader>np :Pandoc! #notes<CR>
+" Write/preview Pandoc output with templates
+autocmd FileType pandoc nnoremap <leader>nw :w<CR>:Pandoc #inch<CR>
+autocmd FileType pandoc nnoremap <leader>npw :w<CR>:Pandoc! #inch<CR>
+autocmd FileType pandoc nnoremap <leader>nn :w<CR>:Pandoc #notes<CR>
+autocmd FileType pandoc nnoremap <leader>npn :w<CR>:Pandoc! #notes<CR>
+autocmd FileType pandoc set wrap " Override the default nowrap setting above
 
+" Tab settings for Terraform files
+autocmd FileType terraform set tabstop=2
+autocmd FileType terraform set shiftwidth=2
