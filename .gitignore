@@ -1,0 +1,10 @@
+# virtualenv and autoenv
+.env
+env
+
+# IDE files
+.idea/
+.spyproject/
+
+# ctags
+tags
