@@ -70,9 +70,8 @@ then
 fi
 
 # git-fire
-# from https://raw.githubusercontent.com/edwinbalani/git-fire/53665ccd460c614ee647186a17cfa9709e8f3d57/git-fire
 echo "Installing git-fire..."
-git_fire_url="https://raw.githubusercontent.com/edwinbalani/git-fire/53665ccd460c614ee647186a17cfa9709e8f3d57/git-fire"
+git_fire_url="https://raw.githubusercontent.com/edwinbalani/git-fire/master/git-fire"
 git_fire_dest="$HOME/.local/bin"
 mkdir -p "$git_fire_dest"
 if hash curl 2>/dev/null; then
