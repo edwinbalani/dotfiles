@@ -8,3 +8,6 @@ env
 
 # ctags
 tags
+
+# direnv .envrc file
+.envrc

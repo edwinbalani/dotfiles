@@ -69,6 +69,23 @@ then
     vim +PluginUpdate +qall
 fi
 
+# git-fire
+# from https://raw.githubusercontent.com/edwinbalani/git-fire/53665ccd460c614ee647186a17cfa9709e8f3d57/git-fire
+echo "Installing git-fire..."
+git_fire_url="https://raw.githubusercontent.com/edwinbalani/git-fire/53665ccd460c614ee647186a17cfa9709e8f3d57/git-fire"
+git_fire_dest="$HOME/.local/bin"
+mkdir -p "$git_fire_dest"
+if hash curl 2>/dev/null; then
+    curl -o "$git_fire_dest/git-fire" "$git_fire_url"
+elif hash wget 2>/dev/null; then
+    wget -O "$git_fire_dest/git-fire" "$git_fire_url"
+else
+    echo "Couldn't find curl or wget to download git-fire."
+    echo "Download manually to $git_fire_dest/git-fire from this URL:"
+    echo "$git_fire_url"
+    exit 1
+fi && echo "Now you can use 'git fire', 'git out' and 'git going' in an emergency! Make sure $git_fire_dest is in your \$PATH"
+
 # Other config files
 for f in .gitconfig .tmux.conf .gitignore;
 do
