@@ -7,27 +7,32 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'file:///home/edwin/src/vim-terraform-completion'
+"Plugin 'juliosueiras/vim-terraform-completion'
+"Plugin 'mxw/vim-jsx'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'Raimondi/delimitMate'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'ajh17/VimCompletesMe'
-Plugin 'nvie/vim-flake8'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'hdima/python-syntax'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'hashivim/vim-terraform'
+Plugin 'hdima/python-syntax'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'nvie/vim-flake8'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'juliosueiras/vim-terraform-completion'
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-
 call vundle#end()
 filetype plugin indent on
 syntax on
@@ -67,10 +72,11 @@ let mapleader = ","
 set showcmd
 
 " Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+" Commented out due to vim-tmux-navigator plugin
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-l> <C-w>l
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -153,10 +159,6 @@ nnoremap <leader>xc :cd %:h<CR>
 " Working with assembly in general
 autocmd FileType asm,s nnoremap <leader>a :e %:r.asm<CR>
 autocmd FileType asm,s nnoremap <leader>l :e %:r.lst<CR>
-autocmd FileType asm,s set tabstop=8
-autocmd FileType asm,s set shiftwidth=8
-autocmd FileType asm,s set shiftround
-autocmd FileType asm,s set noexpandtab
 
 " Working with PIC assembly specifically
 autocmd FileType asm nnoremap <leader>p :w<CR>:!echo;echo;gpasm %:r.asm && pickit %:r.hex<CR>
@@ -171,8 +173,14 @@ autocmd FileType pandoc nnoremap <leader>nw :w<CR>:Pandoc #inch<CR>
 autocmd FileType pandoc nnoremap <leader>npw :w<CR>:Pandoc! #inch<CR>
 autocmd FileType pandoc nnoremap <leader>nn :w<CR>:Pandoc #notes<CR>
 autocmd FileType pandoc nnoremap <leader>npn :w<CR>:Pandoc! #notes<CR>
+autocmd FileType pandoc nnoremap <leader>nd :w<CR>:Pandoc #docx<CR>
+autocmd FileType pandoc nnoremap <leader>npd :w<CR>:Pandoc! #docx<CR>
 autocmd FileType pandoc set wrap " Override the default nowrap setting above
 
-" Tab settings for Terraform files
-autocmd FileType terraform set tabstop=2
-autocmd FileType terraform set shiftwidth=2
+" Tab settings for various filetypes
+autocmd FileType asm,s set tabstop=8
+autocmd FileType asm,s set shiftwidth=8
+autocmd FileType asm,s set shiftround
+autocmd FileType asm,s set noexpandtab
+autocmd FileType css,javascript,terraform,yaml set softtabstop=2
+autocmd FileType css,javascript,terraform,yaml set shiftwidth=2
