@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Exit on error
 set -e
@@ -9,6 +9,18 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # First, update the dotfiles themselves (if they were git cloned in the first place)
 [ -d "$DOTFILES_DIR/.git" ] && git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master
+
+# If zsh is an available shell, get Oh My Zsh (which will automatically chsh to zsh)
+if hash zsh && grep -Fxq "$(which zsh)" /etc/shells
+then
+    if hash curl; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    elif hash wget; then
+        sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    else
+        echo WARNING: Oh My Zsh installation could not complete because neither curl nor wget were found on this system.
+    fi
+fi
 
 # Arguments for ln
 # from https://github.com/bndabbs/dotfiles/blob/master/setup.sh
