@@ -112,7 +112,9 @@ set smarttab    " Insert tabs following shiftwidth, not tabstop
 " Search options
 set hlsearch    " Highlight search matches
 set incsearch   " Move to search matches as you type
-nnoremap <leader>/ :nohlsearch<CR>   " Temporarily kill search highlighting
+
+" Temporarily kill search highlighting
+nnoremap <leader>/ :nohlsearch<CR>
 
 set history=1000
 set undolevels=1000
