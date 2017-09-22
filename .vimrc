@@ -4,8 +4,8 @@
 set nocompatible
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
+call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 "Plugin 'file:///home/edwin/src/vim-terraform-completion'
 "Plugin 'juliosueiras/vim-terraform-completion'
