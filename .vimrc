@@ -7,35 +7,55 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'mxw/vim-jsx'
 "Plugin 'file:///home/edwin/src/vim-terraform-completion'
 "Plugin 'juliosueiras/vim-terraform-completion'
-"Plugin 'mxw/vim-jsx'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-Plugin 'MaxMEllon/vim-jsx-pretty'
-Plugin 'Raimondi/delimitMate'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ajh17/VimCompletesMe'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'hashivim/vim-terraform'
-Plugin 'hdima/python-syntax'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'nvie/vim-flake8'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
+" sort with :sort i /[^\/]*\//]
+if v:version >= 800
+    Plugin 'w0rp/ale'
+else
+    Plugin 'vim-syntastic/syntastic'
+endif
 Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'hdima/python-syntax'
 Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-commentary'
+Plugin 'nvie/vim-flake8'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'pangloss/vim-javascript'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'hashivim/vim-terraform'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-vinegar'
+Plugin 'ajh17/VimCompletesMe'
 call vundle#end()
 filetype plugin indent on
 syntax on
+
+"" Some vim-terraform-completion keys (Ctrl-K and Ctrl-L) conflict with vim-tmux-navigator, let's remap them
+"" Adapted from https://github.com/juliosueiras/vim-terraform-completion/blob/2421e4d/ftplugin/terraform.vim
+"augroup TerraformCompleteKeys
+    "autocmd!
+    "" These two change from Ctrl- to Alt- mappings
+    "autocmd VimEnter * autocmd FileType terraform 
+    "autocmd VimEnter * autocmd FileType terraform noremap <buffer><silent> <M-K> :call terraformcomplete#GetDoc()<CR>
+    "autocmd VimEnter * autocmd FileType terraform noremap <buffer> <M-L> :call terraformcomplete#JumpRef()<CR>
+    "" These two are unchanged
+    "autocmd FileType terraform noremap <buffer><silent> <leader>a :call terraformcomplete#LookupAttr()<CR>
+    "autocmd FileType terraform noremap <buffer><silent> <leader>o :call terraformcomplete#OpenDoc()<CR>
+"augroup END
 
 " Enable mouse support in all ('a') modes
 set mouse=a
@@ -49,6 +69,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"let g:terraformcomplete_map_getdoc = "^[k"
+"let g:terraformcomplete_map_jumpref = "^[l"
+"let g:terraformcomplete_mappings = 0
 
 " Consolidate temporary files in a central spot
 set backupdir=~/.vim/tmp/backup
