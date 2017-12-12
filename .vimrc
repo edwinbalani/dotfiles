@@ -13,9 +13,10 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'file:///home/edwin/src/vim-terraform-completion'
 "Plugin 'juliosueiras/vim-terraform-completion'
 " sort with :sort i /[^\/]*\//]
-if v:version >= 800
+if v:version >= 800 && has('timers') && has('job') && has('channel')
     Plugin 'w0rp/ale'
 else
+    echoe "You don't have Vim8 with +timers +job +channel -- installing Syntastic instead of ALE"
     Plugin 'vim-syntastic/syntastic'
 endif
 Plugin 'tacahiroy/ctrlp-funky'
