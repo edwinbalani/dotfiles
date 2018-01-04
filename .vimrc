@@ -205,6 +205,15 @@ autocmd FileType pandoc nnoremap <leader>nd :w<CR>:Pandoc #docx<CR>
 autocmd FileType pandoc nnoremap <leader>npd :w<CR>:Pandoc! #docx<CR>
 autocmd FileType pandoc set wrap " Override the default nowrap setting above
 
+" Use tabs in BIND config files
+autocmd FileType bindzone,named set softtabstop=0
+autocmd FileType bindzone,named set shiftwidth=0
+autocmd FileType bindzone,named set shiftround
+autocmd FileType bindzone,named set noexpandtab
+"" Disable Tab completion mapping
+autocmd FileType bindzone,named silent! iunmap <Tab>
+autocmd FileType bindzone,named set listchars=tab:\ \ ,trail:⋅,nbsp:⋅,extends:#
+
 " Tab settings for various filetypes
 autocmd FileType asm,s set tabstop=8
 autocmd FileType asm,s set shiftwidth=8
