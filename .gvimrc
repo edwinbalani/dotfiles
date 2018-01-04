@@ -5,7 +5,7 @@ endif
 syntax on
 colorscheme darktooth
 
-if has('gui_gtk2')
+if has('gui')
   set guifont=DejaVu\ Sans\ Mono\ 11
 else
   set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
