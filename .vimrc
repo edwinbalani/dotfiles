@@ -104,13 +104,6 @@ set splitright
 let mapleader = ","
 set showcmd
 
-" Quicker window movement
-" Commented out due to vim-tmux-navigator plugin
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-l> <C-w>l
-
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
