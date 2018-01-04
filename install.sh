@@ -13,7 +13,7 @@ echo "Updating dotfiles..."
 [ -d "$DOTFILES_DIR/.git" ] && git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master
 
 # If zsh is an available shell, get Oh My Zsh (which will automatically chsh to zsh)
-if hash zsh && grep -Fxq "$(which zsh)" /etc/shells
+if hash zsh 2>/dev/null && grep -Fxq "$(which zsh)" /etc/shells
 then
     echo "Found zsh! Installing oh-my-zsh..."
     if hash curl; then
