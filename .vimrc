@@ -114,8 +114,8 @@ nnoremap <Down> :echoe "Use j"<CR>
 noremap <F4> :NERDTreeToggle<CR>
 
 " CtrlP bindings
-nnoremap <leader>f :CtrlPBuffer<CR>
-nnoremap <leader>k :CtrlPFunky<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>f :CtrlPFunky<CR>
 nnoremap <leader>l :CtrlPLine<CR>
 
 " Tab settings
