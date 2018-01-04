@@ -215,9 +215,5 @@ autocmd FileType bindzone,named silent! iunmap <Tab>
 autocmd FileType bindzone,named set listchars=tab:\ \ ,trail:⋅,nbsp:⋅,extends:#
 
 " Tab settings for various filetypes
-autocmd FileType asm,s set tabstop=8
-autocmd FileType asm,s set shiftwidth=8
-autocmd FileType asm,s set shiftround
-autocmd FileType asm,s set noexpandtab
-autocmd FileType css,javascript,terraform,yaml set softtabstop=2
-autocmd FileType css,javascript,terraform,yaml set shiftwidth=2
+autocmd FileType asm,s set tabstop=8 shiftwidth=8 shiftround noexpandtab
+autocmd FileType css,javascript,terraform,yaml set softtabstop=2 shiftwidth=2
