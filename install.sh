@@ -66,7 +66,7 @@ then
         git clone --depth=1 https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
     fi
     # Download plugins with Vundle
-    vim +PluginUpdate +qall
+    vim +PluginUpdate +PluginClean! +qall
 fi
 
 # git-fire
