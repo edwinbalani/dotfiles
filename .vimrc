@@ -22,6 +22,7 @@ endif
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
+Plugin 'mattn/emmet-vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'hdima/python-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
