@@ -24,6 +24,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'hdima/python-syntax'
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-commentary'
 Plugin 'nvie/vim-flake8'
@@ -33,6 +34,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'pangloss/vim-javascript'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tpope/vim-surround'
@@ -70,6 +72,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" vim-mustache-handlebars shortcuts
+let g:mustache_abbreviations = 1
 
 "let g:terraformcomplete_map_getdoc = "^[k"
 "let g:terraformcomplete_map_jumpref = "^[l"
