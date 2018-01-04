@@ -70,20 +70,25 @@ then
 fi
 
 # git-fire
-echo "Installing git-fire..."
-git_fire_url="https://raw.githubusercontent.com/edwinbalani/git-fire/master/git-fire"
-git_fire_dest="$HOME/.local/bin"
-mkdir -p "$git_fire_dest"
-if hash curl 2>/dev/null; then
-    curl -o "$git_fire_dest/git-fire" "$git_fire_url"
-elif hash wget 2>/dev/null; then
-    wget -O "$git_fire_dest/git-fire" "$git_fire_url"
+if ! ( hash git-fire 2>/dev/null ); then
+    echo "Installing git-fire..."
+    git_fire_url="https://raw.githubusercontent.com/edwinbalani/git-fire/master/git-fire"
+    git_fire_dest="$HOME/.local/bin"
+    git_fire_path="$git_fire_dest/git-fire"
+    mkdir -p "$git_fire_dest"
+    if hash curl 2>/dev/null; then
+        curl -o "$git_fire_path" "$git_fire_url"
+    elif hash wget 2>/dev/null; then
+        wget -O "$git_fire_path" "$git_fire_url"
+    else
+        echo "Couldn't find curl or wget to download git-fire."
+        echo "Download manually to $git_fire_dest/git-fire from this URL:"
+        echo "$git_fire_url"
+        exit 1
+    fi && chmod +x "$git_fire_path" && echo "Now you can use 'git fire', 'git out' or 'git going' in an emergency! Make sure $git_fire_dest is in your \$PATH"
 else
-    echo "Couldn't find curl or wget to download git-fire."
-    echo "Download manually to $git_fire_dest/git-fire from this URL:"
-    echo "$git_fire_url"
-    exit 1
-fi && echo "Now you can use 'git fire', 'git out' and 'git going' in an emergency! Make sure $git_fire_dest is in your \$PATH"
+    echo "git-fire already found on your system; not installing again"
+fi
 
 # Other config files
 for f in .gitconfig .tmux.conf .gitignore;
