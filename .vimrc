@@ -216,4 +216,6 @@ autocmd FileType bindzone,named set listchars=tab:\ \ ,trail:⋅,nbsp:⋅,extend
 
 " Tab settings for various filetypes
 autocmd FileType asm,s set tabstop=8 shiftwidth=8 shiftround noexpandtab
-autocmd FileType css,javascript,terraform,yaml set softtabstop=2 shiftwidth=2
+autocmd FileType html,css,javascript,terraform,yaml set softtabstop=2 shiftwidth=2
+autocmd FileType cpp,cc,c,h,hpp,hh set tabstop=4 shiftwidth=0 noexpandtab
+autocmd FileType tex set tw=120 ts=4 sw=0 noet
