@@ -49,7 +49,7 @@ then
     echo "Vim is installed - installing .vimrc and plugins..."
     # Make necessary (sub)directories
     mkdir -p "$HOME/.vim/colors"
-    mkdir -p "$HOME/.vim/tmp/{backup,swap}"
+    mkdir -p "$HOME/.vim/tmp/backup ""$HOME/.vim/tmp/swap"
 
     # Link config and colour theme
     $LINK_CMD "$DOTFILES_DIR/.vimrc" "$HOME"
