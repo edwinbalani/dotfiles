@@ -177,6 +177,11 @@ let python_highlight_all=1
 "let g:pandoc#command#autoexec_on_writes=1
 "let g:pandoc#command#autoexec_command = "Pandoc! pdf"
 
+" Vimtex setup with zathura & synctex
+let g:vimtex_view_method = 'zathura'
+"" We'll start the viewer ourselves with <localleader>lv so that synctex works
+let g:vimtex_view_automatic = 1
+
 " Quick .vimrc editing
 nnoremap <leader>ev :tabe $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -219,3 +224,6 @@ autocmd FileType asm,s set tabstop=8 shiftwidth=8 shiftround noexpandtab
 autocmd FileType html,css,javascript,terraform,yaml set softtabstop=2 shiftwidth=2
 autocmd FileType cpp,cc,c,h,hpp,hh set tabstop=4 shiftwidth=0 noexpandtab
 autocmd FileType tex set tw=120 ts=4 sw=0 noet
+
+" Text wrapping on Markdown files (et al.)
+autocmd FileType pandoc set tw=80 fo+=tcqron1j
