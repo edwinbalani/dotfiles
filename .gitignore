@@ -8,6 +8,8 @@ env
 
 # ctags
 tags
+tags.lock
+tags.temp
 
 # direnv .envrc file
 .envrc
