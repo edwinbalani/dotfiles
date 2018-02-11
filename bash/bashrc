@@ -1,0 +1,22 @@
+if [ ! -f "$HOME/.dotfiles-location" ]; then
+    echo "ERROR: $HOME/.dotfiles-location not found."
+    echo "       This needs to be a file that exports DOTFILES_DIR, the location"
+    echo "       of your dotfiles (https://github.com/edwinbalani/dotfiles.git)"
+    echo "         e.g. echo 'export DOTFILES_DIR=\$HOME/dotfiles' > ~/.dotfiles-location"
+elif [ ! -d "$HOME/antigen" ]; then
+    echo "ERROR: Antigen installation not found at $HOME/antigen"
+    echo "       Run "
+    echo "           git clone https://github.com/zsh-users/antigen.git ~/antigen"
+    echo "       to fix."
+else
+    source "$HOME/.dotfiles-location"  # exports DOTFILES_DIR
+    for component in export alias function; do
+        source "$DOTFILES_DIR/shell/$component.sh"
+    done
+    for component in prompt; do
+        source "$DOTFILES_DIR/bash/$component.bash"
+    done
+    if [ -f "$HOME/.bashrc.local" ]; then
+        source "$HOME/.bashrc.local"
+    fi
+fi

@@ -1,5 +1,8 @@
 " edwinbalani's .vimrc
 
+set encoding=utf-8
+scriptencoding utf-8
+
 " Vundle
 set nocompatible
 filetype off
@@ -16,7 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 if v:version >= 800 && has('timers') && has('job') && has('channel')
     Plugin 'w0rp/ale'
 else
-    " echoe "You don't have Vim8 with +timers +job +channel -- installing Syntastic instead of ALE"
     Plugin 'vim-syntastic/syntastic'
 endif
 Plugin 'tacahiroy/ctrlp-funky'
@@ -31,7 +33,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'ludovicchabant/vim-gutentags'
+if executable('ctags')
+    Plugin 'ludovicchabant/vim-gutentags'
+endif
 Plugin 'pangloss/vim-javascript'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
@@ -161,7 +165,11 @@ vnoremap < <gv
 
 " Show lines that extend off-screen or with misbehaving whitespace
 set list
-set listchars=tab:⋅\ ,trail:⋅,nbsp:⋅,extends:#
+if has('multi_byte')
+    set listchars=tab:⋅\ ,trail:⋅,nbsp:⋅,extends:#
+else
+    set listchars=tab:.\ ,trail:*,nbsp:~,extends:#
+endif
 "set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:#
 
 " Hide buffers instead of closing them

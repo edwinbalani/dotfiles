@@ -1,0 +1,15 @@
+# virtualenv and autoenv
+.env
+env
+
+# IDE files
+.idea/
+.spyproject/
+
+# ctags
+tags
+tags.lock
+tags.temp
+
+# direnv .envrc file
+.envrc
