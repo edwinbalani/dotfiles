@@ -3,8 +3,6 @@ source "$HOME/antigen/antigen.zsh"
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
-antigen use oh-my-zsh
-
 antigen bundle aws
 antigen bundle command-not-found
 antigen bundle common-aliases
