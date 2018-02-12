@@ -14,7 +14,6 @@ antigen bundle git-extras
 antigen bundle history
 antigen bundle httpie
 antigen bundle jsontools
-antigen bundle last-working-dir
 antigen bundle perms
 antigen bundle pip
 antigen bundle pylint
