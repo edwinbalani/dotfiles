@@ -7,8 +7,8 @@ antigen bundles <<EOB
     aws
     command-not-found
     common-aliases
-    docker
     django
+    docker
     encode64
     git
     git-extras
