@@ -11,25 +11,25 @@ mnt () {
   folder=$2
   shift 2
   mntpoint=$HOME/remote/$host
-  umnt $host
-  mkdir -p $mntpoint
-  sshfs $host:$folder $@ $mntpoint
-  cd $mntpoint
+  umnt "$host"
+  mkdir -p "$mntpoint"
+  sshfs "$host:$folder" "${@}" "$mntpoint"
+  cd "$mntpoint"
 }
 
 umnt () {
   host=$1
   shift
   mntpoint=$HOME/remote/$host
-  if mountpoint -q -- $mntpoint
+  if mountpoint -q -- "$mntpoint"
   then
-    fusermount -u $mntpoint && rmdir $mntpoint
+    fusermount -u "$mntpoint" && rmdir "$mntpoint"
   fi
 }
 
 # PDF tools
 panpdf () {
-    pandoc -o $(basename -s.md "$1").pdf -Vpapersize:a4 -Vgeometry:'margin=1.1in' -Vmainfontoptions:'Scale=1.1' "$1"
+    pandoc -o "$(basename -s.md "$1").pdf" -Vpapersize:a4 -Vgeometry:'margin=1.1in' -Vmainfontoptions:'Scale=1.1' "$1"
 }
 
 pdf_bw () {
@@ -41,5 +41,5 @@ pdf_bw () {
     -dCompatibilityLevel=1.4 \
     -dNOPAUSE \
     -dBATCH \
-    $1
+    "$1"
 }
