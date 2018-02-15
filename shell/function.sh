@@ -1,5 +1,12 @@
 ########## functions
 
+# Update dotfiles on remote systems (how ~meta~ is that?)
+update-dotfiles () {
+    for host in "${@}"; do
+        ssh "$host" 'source ~/.dotfiles-location && cd $DOTFILES_DIR && git pull'
+    done
+}
+
 # thefuck (if it's installed)
 if command -v thefuck >/dev/null 2>&1; then
     eval "$(thefuck --alias)"
