@@ -24,9 +24,9 @@ fi
 
 # purdy quotes
 if command -v fortune >/dev/null 2>&1 && command -v cowsay >/dev/null 2>&1; then
-    alias forsay="fortune|cowsay"
+    alias forsay="fortune | cowsay -n -W 80"
     alias clear="command clear ; forsay"
-    fortune | cowsay
+    fortune | cowsay -n -W 80
 fi
 
 if command -v python >/dev/null 2>&1 || command -v python3 >/dev/null 2>&1; then
