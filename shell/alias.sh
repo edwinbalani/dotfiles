@@ -7,12 +7,6 @@ if command -v vim >/dev/null 2>&1 && (vim --version | grep -Fq -- '+clientserver
     alias vim="vim --servername vim"
 fi
 
-# tmux
-if command -v tmux >/dev/null 2>&1; then
-    alias att="tmux new -As"
-    alias tls="tmux ls"
-fi
-
 # terraform is too long to type :P
 alias tf=terraform
 

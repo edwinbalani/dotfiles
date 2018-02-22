@@ -7,6 +7,23 @@ update-dotfiles () {
     done
 }
 
+# tmux:
+if command -v tmux >/dev/null 2>&1; then
+    # - create a new session, or join an existing one if it exists
+    att () {
+        if tmux has -t "$1" 2>/dev/null; then
+            tmux new-session -t "$1"
+        else
+            tmux new-session -As "$1"
+        fi
+    }
+
+    # - list sessions
+    # this should really be in alias.sh, but I wanted to keep these
+    # two commands together
+    alias tls="tmux ls"
+fi
+
 # thefuck (if it's installed)
 if command -v thefuck >/dev/null 2>&1; then
     eval "$(thefuck --alias)"
