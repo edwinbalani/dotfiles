@@ -12,8 +12,19 @@ if command -v tmux >/dev/null 2>&1; then
     # - create a new session, or join an existing one if it exists
     att () {
         if tmux has -t "$1" 2>/dev/null; then
-            tmux new-session -t "$1"
+            # If a session exists...
+            if [ "$(tmux ls -F '#{session_name}:#{session_attached}' | awk -F: "/^$1:/ {print \$2}")" = "0" ]; then
+                # ...if it's detached, attach to it
+                tmux attach -t "$1"
+            else
+                # ...otherwise, spawn a temporary session to join its group,
+                # which is deleted at the end to avoid polluting with sessions
+                temp_session_name="$(tmux new-session -t "$1" -d -P -F "#{session_name}")"
+                tmux attach -t "$temp_session_name"
+                tmux kill-session -t "$temp_session_name"
+            fi
         else
+            # and if a session doesn't exist, just create it
             tmux new-session -As "$1"
         fi
     }
