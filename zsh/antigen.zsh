@@ -25,6 +25,7 @@ antigen bundles <<EOB
     pylint
     python
     quote
+    svn
     systemd
     terraform
     urltools
