@@ -3,6 +3,9 @@ source "$HOME/antigen/antigen.zsh"
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
+export NVM_LAZY_LOAD=true
+antigen bundle lukechilds/zsh-nvm
+
 antigen use oh-my-zsh
 
 antigen bundles <<EOB
