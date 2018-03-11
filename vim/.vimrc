@@ -35,6 +35,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'fatih/vim-go'
 if executable('ctags')
     Plugin 'ludovicchabant/vim-gutentags'
 endif
