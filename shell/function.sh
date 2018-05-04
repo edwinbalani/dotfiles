@@ -25,7 +25,11 @@ if command -v tmux >/dev/null 2>&1; then
             fi
         else
             # and if a session doesn't exist, just create it
-            tmux new-session -As "$1"
+            if [ -n "$1" ]; then
+                tmux new-session -s "$1"
+            else
+                tmux new-session
+            fi
         fi
     }
 
