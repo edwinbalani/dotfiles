@@ -8,7 +8,7 @@ else
     for component in export alias function; do
         source "$DOTFILES_DIR/shell/$component.sh"
     done
-    for component in prompt; do
+    for component in prompt util alias; do
         source "$DOTFILES_DIR/bash/$component.bash"
     done
     if [ -f "$HOME/.bashrc.local" ]; then
