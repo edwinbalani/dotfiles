@@ -42,6 +42,7 @@ fi
 # thefuck (if it's installed)
 if command -v thefuck >/dev/null 2>&1; then
     eval "$(thefuck --alias)"
+    eval "$(thefuck --alias oops)"  # Keeping it SFW
 fi
 
 # Mount and unmount SSHFS
