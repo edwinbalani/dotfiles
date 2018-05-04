@@ -1,84 +1,64 @@
 # edwinbalani's dotfiles
 
----
-
-Congratulations if you've found these.  Note that they're mainly for my own use,
-and thus may have some opinionated personalisations that I find useful.
-
 ## Contents
 
-1. [Introduction](#introduction)
-2. [Recommended programs](#recommended-programs)
-3. [Installation](#installation)
-    1. [Requirements](#requirements)
-    2. [One line to install](#one-line-to-install)
-4. [Technical information](#technical-information)
-    1. [Directory structure](#directory-structure)
-    2. [Rationale](#rationale)
-    3. [How it works](#how-it-works)
-
----
+* [Introduction](#introduction)
+* [Licence](#licence)
+* [Recommended programs](#recommended-programs)
+* [Installation](#installation)
+   * [Requirements](#requirements)
+   * [One line to install](#one-line-to-install)
+* [Technical information](#technical-information)
+   * [Directory structure](#directory-structure)
+   * [Rationale](#rationale)
+   * [How it works](#how-it-works)
 
 ## Introduction
 
-- You may use these dotfiles as-is, if you want to.  They come with **no
-  warranty or guarantee of quality**.  (If your computer catches fire, becomes
-  sentient or otherwise ruins your life as a result of using these dotfiles,
-  then it's not my fault, because I just said so.  Do let me know if that
-  happens though, because if my measly dotfiles caused that to happen then it
-  would be _really cool_.)
+Congratulations if you've found these.  Note that they're mainly for my own use,
+and thus have some opinionated personalisations that I find useful.
 
-- However, **you may not share, distribute, publish or transmit the contents of
-  this repository, or derivative works (_i.e._ modified/customised versions of
-  these dotfiles)**.  If you want to recommend them to a friend, please share
-  the URL for this repository.  Just because these dotfiles are public on
-  GitHub, it doesn't mean that they're free software.
+You _could_ use these dotfiles as-is, if you want to, but certain things will be
+very unhelpful to you (like my [`.gitconfig`](config/.gitconfig)). They also
+come with **no warranty or guarantee of quality**.  (If your computer catches
+fire, becomes sentient or otherwise ruins your life as a result of using these
+dotfiles, then it's not my fault.  Do let me know if that happens though,
+because if my measly dotfiles caused that to happen then it would be _really
+cool_.)
 
-  In other words: **All rights reserved.  Copyright (C) 2017-18 Edwin Balani.**
+If you have any suggestions on how these could be improved, please do open an
+issue or (better) fork, tweak, and submit a pull request.
 
-- If you want to make use of some or all of these dotfiles as part of your own,
-  then **please email me** at the address listed on [my GitHub
-  profile](https://github.com/edwinbalani).
+## Licence
 
-Why the last two bullet points? Because:
+[MIT License](COPYING).
 
-1. If other people want to use my dotfiles, then I want to know, so that I can
-   make more of an effort to maintain them properly, improve them and clean them
-   up where necessary.
-
-2. Also: if there is actual interest in my dotfiles (_very unlikely_) then
-   I will be very keen to make them free software, and remove the restrictive
-   copyright notice above, **but** only when they're to a high enough standard
-   to be released into the wild.
-
----
 
 ## Recommended programs
 
-To make the most of these dotfiles, it is _highly recommended_ that you
-install these programs:
+To make the most of these dotfiles, it is _highly recommended_ that you install
+these programs (and in parenthesis is why):
 
-- `zsh`
+- `zsh` (I use [antigen](https://github.com/zsh-users/antigen)heavily)
 - `vim` (and optionally `gvim` if you're in a graphical environment)
-- `tmux`
+- `tmux` (helpful alias `att` and `tls`, and [`.tmux.conf`](config/.tmux.conf))
 
-There are a few others that are more optional:
+A few that are more optional:
 
-- `thefuck`
-- `fortune` and `cowsay` (both together makes for a nice shell message ;) )
-- [`hub`](https://github.com/github/hub)
+- `thefuck` (you can use either `fuck`, `oops` (SFW) or double-`Esc` to invoke
+  this)
+- **both** `fortune` **and** `cowsay` (a nice shell startup message ;) )
 
-_(If you're not a fan of these programs, you're probably in the wrong place.  As
-I said at the top of this README, these dotfiles are mainly for my own use, so
-I'm going to customise them for how *I* use my system.)_
+_(If you're not a fan of any of these programs, you're probably in the wrong
+place.  These dotfiles are mainly for my own use, are customised for myself
+above anything else.)_
 
----
 
 ## Installation
 
 ### Requirements
 
- - `git` to keep the repository updated
+ - `git` to keep the repository updated (and, er, to clone it in the first place)
  - `bash` for the install script
 
 ### One line to install
@@ -87,7 +67,18 @@ I'm going to customise them for how *I* use my system.)_
 $ git clone https://github.com/edwinbalani/dotfiles.git ~/dotfiles && ~/dotfiles/install.sh
 ```
 
----
+**WARNING:** You should [make a backup](#rationale) of any existing dotfiles
+before you run this.  In many cases, you won't have any, or they'll be system
+defaults that you don't care about (if you're installing this onto a fresh
+computer or account).
+
+The installation script is tried and tested heavily on 'full-fat' desktop and
+server installations of Ubuntu 16.04 -- other Linux distros less so.  I don't
+expect it to work on BSD/macOS systems, but you may get lucky.
+
+If you run into a bug with the script on your setup, and have fixed it, submit
+a pull request so I can merge the changes back in!
+
 
 ## Technical information
 
@@ -101,7 +92,7 @@ though; you can just run `install.sh` and be happy._
   (e.g. `.gitconfig`, `.tmux.conf`)
 
 - `install/`: contains the installation scripts for the dotfiles.  They're
-  broken up into multiple files, each of which serve to install a certain
+  broken up into multiple files, each of which serves to install a certain
   'component'.
 
   Many of the components are dependent on the installation of a particular
@@ -115,8 +106,9 @@ though; you can just run `install.sh` and be happy._
 
 - `zsh/`: contains `zshrc`, and other files that are `source`d from within the
   main `zshrc` file.  These are only installed if `zsh` is installed _and_
-  available as a shell on your system (check `/etc/shells`).  `~/.zshrc` is
-  created as a symlink to `dotfiles/zsh/zshrc`.
+  available as a login shell on your system (we check `/etc/shells` to do this).
+  `~/.zshrc` is **overwritten** (see below) as a symlink to
+  `dotfiles/zsh/zshrc`.
 
 ### Rationale
 
@@ -133,9 +125,6 @@ necessarily limited to) `.zshrc`, `.vimrc`, `.gvimrc`, `.gitignore`,
 directory.  **If these files already exist, they will be overwritten.**  This is
 because the main use case for these dotfiles is to customise a *fresh system*,
 like a new VM, so the existing content of these files is considered unimportant.
-If you're installing these on a system where this isn't the case, **let me
-know** (read the [introduction section](#introduction)) and I might change this
-behaviour.
 
 ### How it works
 
@@ -152,5 +141,5 @@ would make the installation process non-unattended if `chsh` were called!
 
 (The longest part of the installation is probably the downloading of Vim
 plugins, so if your internet speed is slow then you may wish to cut down on how
-many plugins are downloaded, or run `:PluginUpdate` yourself later on.  See
-`vim/.vimrc` and `install/vim.sh`.)
+many plugins are downloaded, or run `:PluginUpdate` yourself later on.  Edit
+`vim/.vimrc` and `install/vim.sh` before running `install.sh`.)
