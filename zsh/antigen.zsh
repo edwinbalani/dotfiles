@@ -20,6 +20,7 @@ antigen bundles <<EOB
     history
     httpie
     jsontools
+    pass
     perms
     pip
     pylint
