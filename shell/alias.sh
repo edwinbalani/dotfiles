@@ -20,7 +20,11 @@ fi
 if command -v fortune >/dev/null 2>&1 && command -v cowsay >/dev/null 2>&1; then
     alias forsay="fortune | cowsay -n -W 80"
     alias clear="command clear ; forsay"
-    fortune | cowsay -n -W 80
+    # Only do `forsay` if it's an interactive shell
+    # (can break programs like rsync otherwise)
+    case $- in
+        *i*) fortune | cowsay -n -W 80;;
+    esac
 fi
 
 if command -v python >/dev/null 2>&1 || command -v python3 >/dev/null 2>&1; then
