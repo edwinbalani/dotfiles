@@ -1,5 +1,10 @@
 ########## aliases
 
+# iproute2, pretty colours
+(ip -color addr >/dev/null 2>&1) && alias ip="ip -color"
+(ip -brief addr >/dev/null 2>&1) && alias ipb="ip -brief"
+(ip -s -h  addr >/dev/null 2>&1) && alias ipst="ip -stat -human-readable"
+
 # RSI avoidance measures
 export EDITOR=vim
 export VISUAL=vim
