@@ -29,7 +29,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'mattn/emmet-vim'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'hdima/python-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'Quramy/tsuquyomi'
@@ -55,7 +55,7 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'lervag/vimtex'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-vinegar'
-Plugin 'ajh17/VimCompletesMe'
+" Plugin 'ajh17/VimCompletesMe'
 call vundle#end()
 filetype plugin indent on
 syntax on
