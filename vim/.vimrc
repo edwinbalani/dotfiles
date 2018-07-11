@@ -261,6 +261,9 @@ autocmd FileType tex set tw=120 ts=4 sw=0 noet
 " Text wrapping on Markdown files (et al.)
 autocmd FileType pandoc set tw=80 fo+=tcqron1j
 
+" format=flowed mail
+autocmd FileType mail setl fo+=aw
+
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
