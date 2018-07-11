@@ -134,6 +134,7 @@ noremap <F4> :NERDTreeToggle<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>f :CtrlPFunky<CR>
 nnoremap <leader>l :CtrlPLine<CR>
+nnoremap <leader>t :CtrlPTag<CR>
 
 " Tab settings
 set tabstop=8       " \t characters in files are shown as 8 spaces
