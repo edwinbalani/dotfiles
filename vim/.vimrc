@@ -76,6 +76,10 @@ syntax on
 " Enable mouse support in all ('a') modes
 set mouse=a
 
+" Set leader key and show when it's typed
+let mapleader = ","
+set showcmd
+
 " Syntastic Config
 set statusline+=%#warningmsg#
 if exists('g:loaded_syntastic_plugin')
@@ -110,10 +114,6 @@ set conceallevel=2
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
-" Set leader key and show when it's typed
-let mapleader = ","
-set showcmd
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
