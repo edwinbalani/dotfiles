@@ -91,6 +91,12 @@ if exists('g:loaded_syntastic_plugin')
 endif
 set statusline+=%*
 
+" Don't eagerly tag everything - enable on a project by project basis
+let g:gutentags_enabled = 0
+nnoremap <leader>gte :let g:gutentags_enabled = 1<CR>
+nnoremap <leader>gtd :let g:gutentags_enabled = 0<CR>
+nnoremap <leader>gtu :GutentagsUpdate<CR>
+
 " vim-mustache-handlebars shortcuts
 let g:mustache_abbreviations = 1
 
