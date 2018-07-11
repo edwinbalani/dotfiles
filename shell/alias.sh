@@ -52,3 +52,8 @@ fi
 if command_exists hub; then
     alias git=hub
 fi
+
+# https://termbin.com
+if command_exists nc; then
+    alias tb="nc termbin.com 9999"
+fi
