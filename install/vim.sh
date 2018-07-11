@@ -1,6 +1,5 @@
 # Only install vim stuff if vim is installed
-if ( command -v vim >/dev/null 2>&1 )
-then
+if command_exists vim; then
     echo "Vim is installed - installing .vimrc and plugins..."
     # Make necessary (sub)directories
     mkdir -p "$HOME/.vim/colors"
@@ -8,8 +7,7 @@ then
 
     # Link config and colour theme
     $LINK_CMD "$DOTFILES_DIR/vim/.vimrc" "$HOME"
-    if ( command -v gvim >/dev/null 2>&1 )
-    then
+    if command_exists gvim; then
         echo "GVim also detected - installing colour scheme and .gvimrc"
         $LINK_CMD "$DOTFILES_DIR/vim/.gvimrc" "$HOME"
         $LINK_CMD "$DOTFILES_DIR/vim/darktooth.vim" "$HOME/.vim/colors/"

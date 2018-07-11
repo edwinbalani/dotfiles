@@ -1,6 +1,5 @@
 # If zsh is an available shell, get antigen
-if command -v zsh >/dev/null 2>&1 && grep -Fxq "$(which zsh)" /etc/shells
-then
+if is_shell zsh; then
     if [ -d "$HOME/antigen/.git" ]; then
         echo "Found a git repo at ~/antigen -- assuming it's antigen.zsh and updating..."
         git --work-tree="$HOME/antigen" --git-dir="$HOME/antigen/.git" pull origin master

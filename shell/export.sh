@@ -11,7 +11,7 @@ if [ -d /usr/local/go/bin ]; then
     export PATH="$PATH:/usr/local/go/bin"
 fi
 
-if command -v go >/dev/null 2>&1 && [ -d "$HOME/go" ]; then
+if command_exists go && [ -d "$HOME/go" ]; then
     export GOPATH="$HOME/go"
     export PATH="$PATH:$GOPATH/bin"
 fi

@@ -8,7 +8,7 @@ update-dotfiles () {
 }
 
 # tmux:
-if command -v tmux >/dev/null 2>&1; then
+if command_exists tmux 2>&1; then
     # - create a new session, or join an existing one if it exists
     att () {
         if tmux has -t "$1" 2>/dev/null; then
@@ -40,7 +40,7 @@ if command -v tmux >/dev/null 2>&1; then
 fi
 
 # thefuck (if it's installed)
-if command -v thefuck >/dev/null 2>&1; then
+if command_exists thefuck; then
     eval "$(thefuck --alias)"
     eval "$(thefuck --alias oops)"  # Keeping it SFW
 fi

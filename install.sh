@@ -8,6 +8,8 @@ export DOTFILES_DIR
 
 printf "export DOTFILES_DIR=%s\n" "$DOTFILES_DIR" > "$HOME/.dotfiles-location"
 
+source "$DOTFILES_DIR/util.sh"
+
 # Arguments for ln
 # from https://github.com/bndabbs/dotfiles/blob/master/setup.sh
 params="-sf"

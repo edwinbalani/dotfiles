@@ -10,6 +10,7 @@ elif [ ! -d "$HOME/antigen" ]; then
     echo "       to fix."
 else
     source "$HOME/.dotfiles-location"  # exports DOTFILES_DIR
+    source "$DOTFILES_DIR/util.sh"
     for component in export alias function; do
         source "$DOTFILES_DIR/shell/$component.sh"
     done

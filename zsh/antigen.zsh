@@ -32,7 +32,7 @@ antigen bundles <<EOB
     urltools
     vagrant
 EOB
-if command -v thefuck >/dev/null 2>&1; then
+if command_exists thefuck; then
     antigen bundle thefuck
 fi
 

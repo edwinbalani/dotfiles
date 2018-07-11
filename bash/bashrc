@@ -5,6 +5,7 @@ if [ ! -f "$HOME/.dotfiles-location" ]; then
     echo "         e.g. echo 'export DOTFILES_DIR=\$HOME/dotfiles' > ~/.dotfiles-location"
 else
     source "$HOME/.dotfiles-location"  # exports DOTFILES_DIR
+    source "$DOTFILES_DIR/util.sh"
     for component in export alias function; do
         source "$DOTFILES_DIR/shell/$component.sh"
     done
