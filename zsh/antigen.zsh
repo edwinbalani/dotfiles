@@ -9,6 +9,7 @@ antigen bundle lukechilds/zsh-nvm
 antigen use oh-my-zsh
 
 antigen bundles <<EOB
+    autojump
     aws
     command-not-found
     common-aliases
