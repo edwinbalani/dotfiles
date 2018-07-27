@@ -1,5 +1,8 @@
 ########## aliases
 
+# did file -- https://theptrk.com/2018/07/11/did-txt-file/
+alias did="vim +'normal Go' +'r!date' ~/did.txt"
+
 # iproute2, pretty colours
 (ip -color addr >/dev/null 2>&1) && alias ip="ip -color"
 (ip -brief addr >/dev/null 2>&1) && alias ipb="ip -brief"
