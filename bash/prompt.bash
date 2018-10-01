@@ -8,4 +8,4 @@ PROMPT_CHAR () {
         printf '$';
     fi;
 }
-PS1="\n[\u@\h] \w\a\n$(PROMPT_CHAR) "
+PS1="\n[\u@\h] \w\n$(PROMPT_CHAR) "
