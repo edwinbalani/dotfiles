@@ -41,8 +41,13 @@ Plugin 'tpope/vim-commentary'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'fatih/vim-go'
-if executable('ctags')
+" 'vim-go requires Vim 7.4.2009 or Neovim 0.3.1'
+" copied from https://github.com/fatih/vim-go/blob/master/plugin/go.vim :
+if has('nvim-0.3.1') || (v:version > 704) || (v:version == 704 && has('patch2009'))
+    Plugin 'fatih/vim-go'
+endif
+" 'gutentags: this plugin requires the job API from Vim8 or Neovim.'
+if executable('ctags') && (has('nvim') || v:version >= 800)
     Plugin 'ludovicchabant/vim-gutentags'
 endif
 Plugin 'pangloss/vim-javascript'
