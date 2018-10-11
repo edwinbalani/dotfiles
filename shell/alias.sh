@@ -8,6 +8,9 @@ alias did="vim +'normal Go' +'r!date' ~/did.txt"
 (ip -brief addr >/dev/null 2>&1) && alias ipb="ip -brief"
 (ip -s -h  addr >/dev/null 2>&1) && alias ipst="ip -stat -human-readable"
 
+# if supported, start vim in client-server mode
+(vim --version | grep -Fq '+clientserver') && alias vim="vim --servername vim"
+
 # RSI avoidance measures
 export EDITOR=vim
 export VISUAL=vim
