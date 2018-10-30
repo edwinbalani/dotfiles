@@ -28,6 +28,9 @@ endif
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
+if executable('elm')
+    Plugin 'ElmCast/elm-vim'
+endif
 Plugin 'mattn/emmet-vim'
 " Plugin 'davidhalter/jedi-vim'
 Plugin 'StanAngeloff/php.vim'
