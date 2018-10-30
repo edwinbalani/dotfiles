@@ -1,6 +1,6 @@
-# virtualenv and autoenv
-.env
-env
+# virtualenv
+.env/
+env/
 
 # IDE files
 .idea/
