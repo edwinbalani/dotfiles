@@ -39,7 +39,7 @@ issue or (better) fork, tweak, and submit a pull request.
 To make the most of these dotfiles, it is _highly recommended_ that you install
 these programs (and in parenthesis is why):
 
-- `zsh` (I use [antigen](https://github.com/zsh-users/antigen)heavily)
+- `zsh` (I use [antigen](https://github.com/zsh-users/antigen) heavily)
 - `vim` (and optionally `gvim` if you're in a graphical environment)
 - `tmux` (helpful alias `att` and `tls`, and [`.tmux.conf`](config/.tmux.conf))
 
