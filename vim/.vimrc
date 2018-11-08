@@ -195,11 +195,10 @@ vnoremap < <gv
 " Show lines that extend off-screen or with misbehaving whitespace
 set list
 if has('multi_byte')
-    set listchars=tab:⋅\ ,trail:⋅,nbsp:⋅,extends:#
+    set listchars=tab:⋅\ ,trail:⋅,nbsp:⋅,precedes:#,extends:#
 else
-    set listchars=tab:.\ ,trail:*,nbsp:~,extends:#
+    set listchars=tab:.\ ,trail:*,nbsp:~,precedes:#,extends:#
 endif
-"set listchars=tab:▷⋅,trail:⋅,nbsp:⋅,extends:#
 
 " Hide buffers instead of closing them
 set hidden
