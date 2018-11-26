@@ -273,7 +273,7 @@ autocmd FileType bindzone,named set listchars=tab:\ \ ,trail:⋅,nbsp:⋅,extend
 " sr : shiftround
 " (no)et : (no)expandtab
 autocmd FileType asm,s set ts=8 sw=8 sr noet
-autocmd FileType html,css,scss,javascript,typescript,elm,terraform,yaml set ts=2 sw=2 sr et
+autocmd FileType html,jinja.html,css,scss,javascript,typescript,elm,terraform,yaml set ts=2 sw=2 sr et
 autocmd FileType html set tw=144
 autocmd FileType cpp,cc,c,h,hpp,hh,go set ts=4 sw=0 noet
 autocmd FileType tex set tw=120 ts=4 sw=0 noet
