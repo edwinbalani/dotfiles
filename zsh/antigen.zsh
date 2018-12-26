@@ -36,5 +36,3 @@ EOB
 if command_exists thefuck; then
     antigen bundle thefuck
 fi
-
-antigen apply
