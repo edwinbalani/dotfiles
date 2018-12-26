@@ -36,3 +36,6 @@ EOB
 if command_exists thefuck; then
     antigen bundle thefuck
 fi
+if command_exists tmuxinator; then
+    antigen bundle tmuxinator
+fi
