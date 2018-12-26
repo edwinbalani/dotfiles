@@ -32,15 +32,13 @@ LINK_CMD="ln $params"
 
 if [ -d "$DOTFILES_DIR/.git" ]; then
     echo "Updating dotfiles..."
-    pushd "$DOTFILES_DIR"
-    current_head=$(git rev-parse HEAD)
+    current_head=$(git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" rev-parse HEAD)
     git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master
-    if [ "$(git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" log --stat "$current_head.." -- install/ install.sh | wc -l)" -ne 0 ]; then
+    if [ "$(git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" log --stat "$current_head.." -- install/ install.sh util.sh | wc -l)" -ne 0 ]; then
         echo "WARNING: the installation scripts were updated by 'git pull'."
         echo "         Please re-run this file ($0) to continue installation."
         exit 1
     fi
-    popd
 fi
 
 for component in $DOTFILES_DIR/install/*.sh; do
