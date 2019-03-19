@@ -1,18 +1,21 @@
-if [ ! -f "$HOME/.dotfiles-location" ]; then
-    echo "ERROR: $HOME/.dotfiles-location not found."
-    echo "       This needs to be a file that exports DOTFILES_DIR, the location"
-    echo "       of your dotfiles (https://github.com/edwinbalani/dotfiles.git)"
-    echo "         e.g. echo 'export DOTFILES_DIR=\$HOME/dotfiles' > ~/.dotfiles-location"
-else
-    source "$HOME/.dotfiles-location"  # exports DOTFILES_DIR
-    source "$DOTFILES_DIR/util.sh"
-    for component in export alias function; do
-        source "$DOTFILES_DIR/shell/$component.sh"
-    done
-    for component in prompt util alias; do
-        source "$DOTFILES_DIR/bash/$component.bash"
-    done
-    if [ -f "$HOME/.bashrc.local" ]; then
-        source "$HOME/.bashrc.local"
+if [ "x$_DOTFILES_SOURCED" != "x1" ]; then
+    if [ ! -f "$HOME/.dotfiles-location" ]; then
+        echo "ERROR: $HOME/.dotfiles-location not found."
+        echo "       This needs to be a file that exports DOTFILES_DIR, the location"
+        echo "       of your dotfiles (https://github.com/edwinbalani/dotfiles.git)"
+        echo "         e.g. echo 'export DOTFILES_DIR=\$HOME/dotfiles' > ~/.dotfiles-location"
+    else
+        source "$HOME/.dotfiles-location"  # exports DOTFILES_DIR
+        source "$DOTFILES_DIR/util.sh"
+        for component in export alias function; do
+            source "$DOTFILES_DIR/shell/$component.sh"
+        done
+        for component in prompt util alias; do
+            source "$DOTFILES_DIR/bash/$component.bash"
+        done
+        if [ -f "$HOME/.bashrc.local" ]; then
+            source "$HOME/.bashrc.local"
+        fi
     fi
 fi
+_DOTFILES_SOURCED=1
