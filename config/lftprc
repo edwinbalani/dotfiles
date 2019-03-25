@@ -1,0 +1,1 @@
+set cmd:prompt "\n[\u\? \@\? \h] \w\n> "
