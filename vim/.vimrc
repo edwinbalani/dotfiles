@@ -28,6 +28,7 @@ if executable('elm')
     Plugin 'ElmCast/elm-vim'
 endif
 Plugin 'mattn/emmet-vim'
+Plugin 'morhetz/gruvbox'
 " Plugin 'davidhalter/jedi-vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'hdima/python-syntax'
@@ -126,7 +127,9 @@ set laststatus=2
 set conceallevel=2
 
 " Set colour scheme
-" colorscheme
+let g:gruvbox_italic=1
+colorscheme gruvbox
+set background=dark
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
