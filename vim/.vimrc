@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'file:///home/edwin/src/vim-terraform-completion'
 "Plugin 'juliosueiras/vim-terraform-completion'
 " sort with :sort i /[^\/]*\//]
-if v:version >= 800 && has('timers') && has('job') && has('channel')
+if (v:version >= 800 && has('timers') && has('job') && has('channel')) || has('nvim')
     Plugin 'w0rp/ale'
 else
     Plugin 'vim-syntastic/syntastic'
