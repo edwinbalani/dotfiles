@@ -3,10 +3,6 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-if has('nvim')
-    set guicursor=
-endif
-
 " Vundle
 set nocompatible
 filetype off
