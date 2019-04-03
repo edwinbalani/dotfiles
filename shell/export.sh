@@ -1,4 +1,18 @@
 ########## PATH and exports
+if command_exists vim; then
+    export EDITOR=vim
+    export VISUAL=vim
+elif command_exists vi; then
+    export EDITOR=vi
+    export VISUAL=vi
+elif command_exists nano; then
+    export EDITOR=nano
+    export VISUAL=nano
+elif command_exists pico; then
+    export EDITOR=pico
+    export VISUAL=pico
+fi
+
 
 if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"

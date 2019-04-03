@@ -12,8 +12,6 @@ alias did="vim +'normal Go' +'r!date' ~/did.txt"
 (vim --version | grep -Fq '+clientserver') && alias vim="vim --servername vim"
 
 # RSI avoidance measures
-export EDITOR=vim
-export VISUAL=vim
 if command_exists vim && (vim --version | grep -Fq -- '+clientserver'); then
     alias vim="vim --servername vim"
 fi
