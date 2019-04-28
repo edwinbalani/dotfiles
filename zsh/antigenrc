@@ -1,0 +1,35 @@
+antigen theme romkatv/powerlevel10k
+
+antigen use oh-my-zsh
+
+antigen bundles <<EOB
+    autojump
+    aws
+    command-not-found
+    common-aliases
+    django
+    docker
+    encode64
+    git
+    git-extras
+    history
+    httpie
+    jsontools
+    lukechilds/zsh-nvm
+    pass
+    perms
+    pip
+    pylint
+    python
+    quote
+    sudo
+    svn
+    systemd
+    terraform
+    urltools
+    vagrant
+EOB
+# command_exists thefuck && antigen bundle thefuck
+command_exists tmuxinator && antigen bundle tmuxinator
+
+antigen bundle zsh-users/zsh-syntax-highlighting  # MUST be the last one
