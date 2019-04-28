@@ -1,4 +1,10 @@
-antigen theme romkatv/powerlevel10k
+# vim: set ft=zsh :
+autoload is-at-least
+if is-at-least 5.2 "$ZSH_VERSION"; then
+    antigen theme romkatv/powerlevel10k
+else
+    antigen theme bhilburn/powerlevel9k
+fi
 
 antigen use oh-my-zsh
 
