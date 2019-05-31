@@ -290,8 +290,8 @@ autocmd FileType tex set tw=120 ts=4 sw=0 noet
 " Text wrapping on Markdown files (et al.)
 autocmd FileType pandoc set tw=80 fo+=tcqron1j
 
-" format=flowed mail
-autocmd FileType mail setl fo+=aw
+" Email
+autocmd FileType mail setl tw=72 fo+=aw listchars=trail:↩ list
 
 " physcomp lab RTL coding convention
 autocmd FileType verilog set ts=8 sw=0 sr noet
