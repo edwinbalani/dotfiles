@@ -16,6 +16,11 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'file:///home/edwin/src/vim-terraform-completion'
 "Plugin 'juliosueiras/vim-terraform-completion'
 " sort with :sort i /[^\/]*\//]
+if executable('elixir')
+    Plugin 'slashmili/alchemist.vim'
+    Plugin 'mhinz/vim-mix-format'
+    let g:mix_format_on_save = 1
+endif
 if (v:version >= 800 && has('timers') && has('job') && has('channel')) || has('nvim')
     Plugin 'w0rp/ale'
 else
@@ -39,6 +44,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dadbod'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -65,6 +72,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'hashivim/vim-terraform'
+Plugin 'cespare/vim-toml'
 Plugin 'lervag/vimtex'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-unimpaired'
@@ -284,6 +292,9 @@ autocmd FileType pandoc set tw=80 fo+=tcqron1j
 
 " format=flowed mail
 autocmd FileType mail setl fo+=aw
+
+" physcomp lab RTL coding convention
+autocmd FileType verilog set ts=8 sw=0 sr noet
 
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
