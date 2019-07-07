@@ -3,7 +3,8 @@
 # Update dotfiles on remote systems (how ~meta~ is that?)
 update-dotfiles () {
     for host in "${@}"; do
-        ssh "$host" '. ~/.dotfiles-location && cd $DOTFILES_DIR && git pull'
+        ssh "$host" '. ~/.dotfiles-location && cd $DOTFILES_DIR && git pull' \
+            || echo "=== Update for $host failed ==="
     done
 }
 
