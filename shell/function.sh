@@ -1,5 +1,12 @@
 ########## functions
 
+sdas () {
+    # Credit to mas90
+    user="$1"
+    shift
+    sudo -u "$user" XDG_RUNTIME_DIR=/run/user/`id -u "$user"` "$@"
+}
+
 # Update dotfiles on remote systems (how ~meta~ is that?)
 update-dotfiles () {
     for host in "${@}"; do
