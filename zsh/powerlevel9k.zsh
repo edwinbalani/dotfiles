@@ -1,7 +1,7 @@
 DEFAULT_USER="$USER"
 
 # https://github.com/bhilburn/powerlevel9k/blob/master/README.md#available-prompt-segments
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs pyenv virtualenv aws aws_eb_env ssh)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs pyenv virtualenv aws aws_eb_env)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time disk_usage battery background_jobs load ram time)
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
