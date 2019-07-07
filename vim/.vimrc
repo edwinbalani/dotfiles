@@ -273,7 +273,6 @@ autocmd FileType bindzone,named set shiftround
 autocmd FileType bindzone,named set noexpandtab
 "" Disable Tab completion mapping
 autocmd FileType bindzone,named silent! iunmap <Tab>
-autocmd FileType bindzone,named set listchars=tab:\ \ ,trail:⋅,nbsp:⋅,extends:#
 
 " Tab settings for various filetypes
 " ts : tabstop
