@@ -14,7 +14,7 @@ else
     for component in export alias function; do
         source "$DOTFILES_DIR/shell/$component.sh"
     done
-    for component in antigen powerlevel9k misc; do
+    for component in antigen powerlevel9k fzf misc; do
         source "$DOTFILES_DIR/zsh/$component.zsh"
     done
     if [ -f "$HOME/.zshrc.local" ]; then
