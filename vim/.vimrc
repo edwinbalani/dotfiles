@@ -28,13 +28,20 @@ endif
 Plug 'tacahiroy/ctrlp-funky', { 'on': 'CtrlPFunky' }
 Plug 'ctrlpvim/ctrlp.vim', { 'on': [ 'CtrlPBuffer', 'CtrlPFunky', 'CtrlPLine', 'CtrlPTag' ] }
 Plug 'Raimondi/delimitMate'
+Plug 'editorconfig/editorconfig-vim'
 if executable('elm')
     Plug 'ElmCast/elm-vim'
 endif
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf'
+Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
 " Plug 'davidhalter/jedi-vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'sh install.sh',
+    \ }
+Plug 'junegunn/limelight.vim'
 Plug 'lifepillar/pgsql.vim', { 'for': 'sql' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -160,6 +167,20 @@ nnoremap <leader>f :CtrlPFunky<CR>
 nnoremap <leader>l :CtrlPLine<CR>
 nnoremap <leader>t :CtrlPTag<CR>
 
+" Language server setup
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'c': ['/usr/bin/clangd'],
+    \ 'cpp': ['/usr/bin/clangd'],
+    \ 'python': ['~/.local/bin/pyls'],
+    \ 'css': ['/home/edwin/.nvm/versions/node/v12.2.0/bin/css-languageserver', '--stdio'],
+    \ 'scss': ['/home/edwin/.nvm/versions/node/v12.2.0/bin/css-languageserver', '--stdio'],
+    \ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
 " Tab settings
 set tabstop=8       " \t characters in files are shown as 8 spaces
 set softtabstop=4   " Insert 4 spaces for <Tab> in Insert mode
@@ -230,6 +251,10 @@ let g:vimtex_view_automatic = 1
 " Quick .vimrc editing
 nnoremap <leader>ev :tabe $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" goyo writing mode
+nnoremap <leader>go :Goyo<CR>
+nnoremap <leader>gl :Limelight!!<CR>
 
 " Django helpers
 " from http://stevelosh.com/blog/2011/06/django-advice/#filetype-mappings
