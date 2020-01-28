@@ -3,82 +3,82 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-" Vundle
 set nocompatible
 filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'scrooloose/nerdcommenter'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'mxw/vim-jsx'
-"Plugin 'file:///home/edwin/src/vim-terraform-completion'
-"Plugin 'juliosueiras/vim-terraform-completion'
+source ~/.vim/autoload/plug.vim
+
+call plug#begin('~/.vim/bundle')
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdtree'
+"Plug 'mxw/vim-jsx'
+"Plug 'file:///home/edwin/src/vim-terraform-completion'
+"Plug 'juliosueiras/vim-terraform-completion'
 " sort with :sort i /[^\/]*\//]
 if executable('elixir')
-    Plugin 'slashmili/alchemist.vim'
-    Plugin 'mhinz/vim-mix-format'
+    Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+    Plug 'mhinz/vim-mix-format', { 'for': 'elixir' }
     let g:mix_format_on_save = 1
 endif
 if (v:version >= 800 && has('timers') && has('job') && has('channel')) || has('nvim')
-    Plugin 'w0rp/ale'
+    Plug 'w0rp/ale'
 else
-    Plugin 'vim-syntastic/syntastic'
+    Plug 'vim-syntastic/syntastic'
 endif
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
+Plug 'tacahiroy/ctrlp-funky', { 'on': 'CtrlPFunky' }
+Plug 'ctrlpvim/ctrlp.vim', { 'on': [ 'CtrlPBuffer', 'CtrlPFunky', 'CtrlPLine', 'CtrlPTag' ] }
+Plug 'Raimondi/delimitMate'
 if executable('elm')
-    Plugin 'ElmCast/elm-vim'
+    Plug 'ElmCast/elm-vim'
 endif
-Plugin 'mattn/emmet-vim'
-Plugin 'morhetz/gruvbox'
-" Plugin 'davidhalter/jedi-vim'
-Plugin 'lifepillar/pgsql.vim'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'hdima/python-syntax'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'tpope/vim-abolish'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dadbod'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'nvie/vim-flake8'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plug 'mattn/emmet-vim'
+Plug 'junegunn/fzf'
+Plug 'morhetz/gruvbox'
+" Plug 'davidhalter/jedi-vim'
+Plug 'lifepillar/pgsql.vim', { 'for': 'sql' }
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'tpope/vim-abolish'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod'
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
+Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 " 'vim-go requires Vim 7.4.2009 or Neovim 0.3.1'
 " copied from https://github.com/fatih/vim-go/blob/master/plugin/go.vim :
 if has('nvim-0.3.1') || (v:version > 704) || (v:version == 704 && has('patch2009'))
-    Plugin 'fatih/vim-go'
+    Plug 'fatih/vim-go', { 'for': 'go' }
 endif
 " 'gutentags: this plugin requires the job API from Vim8 or Neovim.'
 if executable('ctags') && (has('nvim') || v:version >= 800)
-    Plugin 'ludovicchabant/vim-gutentags'
+    Plug 'ludovicchabant/vim-gutentags'
 endif
-Plugin 'pangloss/vim-javascript'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'MaxMEllon/vim-jsx-pretty'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'joonty/vim-phpqa'
-Plugin 'IN3D/vim-raml'
-Plugin 'tpope/vim-repeat'
-Plugin 'kelwin/vim-smali'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-Plugin 'hashivim/vim-terraform'
-Plugin 'cespare/vim-toml'
-Plugin 'lervag/vimtex'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vinegar'
-" Plugin 'ajh17/VimCompletesMe'
-call vundle#end()
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja2' }
+Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'jsx' }
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'vim-pandoc/vim-pandoc', { 'for': ['markdown', 'pandoc']}
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'pandoc']}
+Plug 'joonty/vim-phpqa', { 'for': 'php' }
+Plug 'IN3D/vim-raml', { 'for': 'raml' }
+Plug 'tpope/vim-repeat'
+Plug 'kelwin/vim-smali'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'Matt-Deacalion/vim-systemd-syntax', { 'for': 'systemd' }
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+" Plug 'ajh17/VimCompletesMe'
+call plug#end()
 filetype plugin indent on
 syntax on
 

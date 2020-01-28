@@ -13,13 +13,14 @@ if command_exists vim; then
         $LINK_CMD "$DOTFILES_DIR/vim/darktooth.vim" "$HOME/.vim/colors/"
     fi
 
-    # Install Vundle if not already installed
-    if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]
+    # Install vim-plug if not already installed
+    if [ ! -f "$HOME/.vim/autoload/plug.vim" ]
     then
-        git clone --depth=1 https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
+        curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
+            "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     fi
     # Download plugins with Vundle
-    vim +PluginUpdate +PluginClean! +qall
+    vim +PlugUpdate +PlugClean! +qall
 else
     echo "Couldn't find vim - not installing .vimrc and plugins"
 fi
