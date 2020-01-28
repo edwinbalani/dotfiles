@@ -16,6 +16,13 @@ if command_exists vim && (vim --version | grep -Fq -- '+clientserver'); then
     alias vim="vim --servername vim"
 fi
 
+# Use Knot dnsutils if needs be
+for cmd in dig nsupdate; do
+    if command_exists k$cmd && ! command_exists $cmd; then
+        alias $cmd=k$cmd
+    fi
+done
+
 # terraform is too long to type :P
 if command_exists terraform; then
     alias tf=terraform
