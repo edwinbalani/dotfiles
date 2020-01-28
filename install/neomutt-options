@@ -1,0 +1,14 @@
+# sudo apt install -y \
+#    docbook-xml \
+#    gettext \
+#    libgpgme-dev \
+#    libidn11-dev \
+#    liblmdb-dev \
+#    libncursesw5-dev \
+#    libnotmuch-dev \
+#    libssl-dev \
+#    libxml2-utils \
+#    notmuch \
+#    xsltproc
+
+./configure --prefix=/usr/local --notmuch --ssl --lmdb --gpgme
