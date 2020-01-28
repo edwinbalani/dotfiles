@@ -1,6 +1,7 @@
 ########## aliases
 
-alias fixkeys="setxkbmap -layout gb; xmodmap -e 'clear lock' -e 'keysym Caps_Lock = Escape'"
+alias fixkeys="setxkbmap -layout gb; xmodmap -e 'clear lock' -e 'keysym Caps_Lock = Escape'; xset r rate 300 35"
+alias FIXKEYS=fixkeys
 
 # did file -- https://theptrk.com/2018/07/11/did-txt-file/
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
