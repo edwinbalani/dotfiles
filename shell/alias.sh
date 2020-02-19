@@ -32,6 +32,11 @@ fi
 if command_exists git; then
     alias lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
     alias lga="lg --all"
+    # next three inspired by https://utcc.utoronto.ca/~cks/space/blog/programming/GitAliasesIUse
+    # see also .gitconfig
+    alias gsrc="git remote get-url origin"
+    alias glff="git pull --ff-only"
+    alias gmff="git merge --ff-only"
 fi
 
 # purdy quotes
