@@ -1,7 +1,7 @@
 [user]
     email = git@balani.xyz
     name = Edwin Balani
-    signingkey = 121AC19909407178
+    signingkey = D7EE79A3B90CDC22
 [push]
     default = simple
 [core]
