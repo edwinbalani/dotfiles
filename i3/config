@@ -70,6 +70,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -time 0 -dec 10
 bindsym $mod+equal exec xbacklight -time 0 -inc 10
 bindsym $mod+minus exec xbacklight -time 0 -dec 10
 
+bindsym XF86Calculator exec qalculate
+for_window [class="Qalculate"] floating enable
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+d exec rofi -show drun
