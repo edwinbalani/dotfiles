@@ -1,5 +1,7 @@
 # sudo apt install -y \
 #    docbook-xml \
+#    docbook-xsl \
+#    w3m \
 #    gettext \
 #    libgpgme-dev \
 #    libidn11-dev \
