@@ -250,6 +250,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>go :Goyo<CR>
 nnoremap <leader>gl :Limelight!!<CR>
 
+let g:limelight_conceal_ctermfg = 242
+" let g:limelight_conceal_guifg = '#ebdbb2'
+
 " Django helpers
 " from http://stevelosh.com/blog/2011/06/django-advice/#filetype-mappings
 nnoremap _dt :set ft=htmldjango<CR>
