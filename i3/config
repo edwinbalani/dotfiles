@@ -72,6 +72,8 @@ bindsym $mod+minus exec xbacklight -time 0 -dec 10
 
 bindsym XF86Calculator exec qalculate
 for_window [class="Qalculate"] floating enable
+for_window [class="Gajim"] floating enable
+for_window [class="MultiMC"] floating enable
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run
