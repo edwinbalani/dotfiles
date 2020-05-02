@@ -19,7 +19,7 @@ Congratulations if you've found these.  Note that they're mainly for my own use,
 and thus have some opinionated personalisations that I find useful.
 
 You _could_ use these dotfiles as-is, if you want to, but certain things will be
-very unhelpful to you (like my [`.gitconfig`](config/.gitconfig)). They also
+very unhelpful to you (like my [`.gitconfig`](config/gitconfig)). They also
 come with **no warranty or guarantee of quality**.  (If your computer catches
 fire, becomes sentient or otherwise ruins your life as a result of using these
 dotfiles, then it's not my fault.  Do let me know if that happens though,
@@ -41,7 +41,7 @@ these programs (and in parenthesis is why):
 
 - `zsh` (I use [antigen](https://github.com/zsh-users/antigen) heavily)
 - `vim` (and optionally `gvim` if you're in a graphical environment)
-- `tmux` (helpful alias `att` and `tls`, and [`.tmux.conf`](config/.tmux.conf))
+- `tmux` (helpful alias `att` and `tls`, and [`.tmux.conf`](config/tmux.conf))
 
 A few that are more optional:
 
