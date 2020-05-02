@@ -73,8 +73,9 @@ defaults that you don't care about (if you're installing this onto a fresh
 computer or account).
 
 The installation script is tried and tested heavily on 'full-fat' desktop and
-server installations of Ubuntu 16.04 -- other Linux distros less so.  I don't
-expect it to work on BSD/macOS systems, but you may get lucky.
+server installations of Debian (or Raspbian) stretch and buster and Ubuntu
+16.04 and 18.04 -- other Linux distros less so.  I don't expect it to work on
+BSD/macOS systems, but you may get lucky.
 
 If you run into a bug with the script on your setup, and have fixed it, submit
 a pull request so I can merge the changes back in!
