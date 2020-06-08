@@ -33,7 +33,11 @@ fi
 [ -d "$HOME/.local/utilities" ] && \
     find "$HOME/.local/utilities" -mindepth 1 -maxdepth 1 -type d | \
     while read plugin_path; do
-        export PATH="$PATH:$plugin_path"
+        if [ -d "$plugin_path/bin" ]; then
+            export PATH="$PATH:$plugin_path/bin"
+        else
+            export PATH="$PATH:$plugin_path"
+        fi
     done
 
 export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
