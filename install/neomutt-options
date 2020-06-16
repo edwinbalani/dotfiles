@@ -13,4 +13,4 @@
 #    notmuch \
 #    xsltproc
 
-./configure --prefix=/usr/local --notmuch --ssl --lmdb --gpgme
+./configure --prefix=/usr/local --notmuch --ssl --lmdb --gpgme --pcre2
