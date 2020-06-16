@@ -50,8 +50,11 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'tpope/vim-abolish'
 Plug 'vim-airline/vim-airline'
+Plug 'asciidoc/vim-asciidoc', { 'for': 'asciidoc' }
+Plug 'nathangrigg/vim-beancount'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
+Plug 'jhradilek/vim-docbk'
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'tpope/vim-fugitive'
@@ -88,6 +91,11 @@ Plug 'tpope/vim-vinegar'
 call plug#end()
 filetype plugin indent on
 syntax on
+
+if executable('opam')
+    let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+    execute "set rtp+=" . g:opamshare . "/merlin/vim"
+endif
 
 "" Some vim-terraform-completion keys (Ctrl-K and Ctrl-L) conflict with vim-tmux-navigator, let's remap them
 "" Adapted from https://github.com/juliosueiras/vim-terraform-completion/blob/2421e4d/ftplugin/terraform.vim
