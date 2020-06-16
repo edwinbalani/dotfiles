@@ -171,12 +171,13 @@ nnoremap <leader>t :CtrlPTag<CR>
 
 " Language server setup
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'c': ['/usr/bin/clangd'],
-    \ 'cpp': ['/usr/bin/clangd'],
-    \ 'python': ['~/.local/bin/pyls'],
-    \ 'css': ['/home/edwin/.nvm/versions/node/v12.2.0/bin/css-languageserver', '--stdio'],
-    \ 'scss': ['/home/edwin/.nvm/versions/node/v12.2.0/bin/css-languageserver', '--stdio'],
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
+    \ 'css': ['css-languageserver', '--stdio'],
+    \ 'scss': ['css-languageserver', '--stdio'],
+    \ 'python': ['pyls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'sh': ['bash-language-server', 'start'],
     \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
