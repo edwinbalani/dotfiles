@@ -9,6 +9,7 @@ fi
 antigen use oh-my-zsh
 
 antigen bundles <<EOB
+    asdf
     autojump
     aws
     command-not-found
