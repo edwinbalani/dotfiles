@@ -312,13 +312,18 @@ autocmd FileType bindzone,named silent! iunmap <Tab>
 " sr : shiftround
 " (no)et : (no)expandtab
 autocmd FileType asm,s set ts=8 sw=8 sr noet
-autocmd FileType html,jinja.html,css,scss,javascript,typescript,elm,terraform,yaml set ts=2 sw=2 sr et
-autocmd FileType html set tw=144
+autocmd FileType html,jinja.html,css,scss,xml,xslt,docbk,javascript,typescript,elm,terraform,yaml set ts=2 sw=2 sr et
+autocmd FileType html,xml,xslt,docbk set tw=144 fo+=t
 autocmd FileType cpp,cc,c,h,hpp,hh,go set ts=4 sw=0 noet
 autocmd FileType tex set tw=120 ts=4 sw=0 noet
+autocmd FileType ruby set ts=2 sw=2 et
+autocmd FileType sh,bash,zsh set ts=8 sw=8 noet
 
 " Text wrapping on Markdown files (et al.)
 autocmd FileType pandoc set tw=80 fo+=tcqron1j
+
+" HTML/XML tag closing
+autocmd FileType html,xml,xslt,docbk iabbrev <// </<C-X><C-O>
 
 " Email
 autocmd FileType mail setl tw=72 fo+=aw listchars=trail:↩ list
