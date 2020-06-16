@@ -16,6 +16,7 @@ install_plugin() {
     fi
 }
 
+install_plugin asdf "https://github.com/asdf-vm/asdf.git"
 install_plugin gibo "https://github.com/simonwhitaker/gibo.git"
 install_plugin git-fire "https://github.com/edwinbalani/git-fire.git"
 if command_exists zathura && command_exists pandoc && command_exists vim; then
