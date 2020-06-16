@@ -21,7 +21,7 @@ if executable('elixir')
     let g:mix_format_on_save = 1
 endif
 if (v:version >= 800 && has('timers') && has('job') && has('channel')) || has('nvim')
-    Plug 'w0rp/ale'
+    Plug 'dense-analysis/ale'
 else
     Plug 'vim-syntastic/syntastic'
 endif
