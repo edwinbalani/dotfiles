@@ -21,3 +21,5 @@
     source = remote get-url origin
     ffpull = pull --ff-only
     ffmerge = merge --ff-only
+[color]
+	ui = auto
