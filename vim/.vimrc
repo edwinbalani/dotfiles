@@ -175,6 +175,7 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd'],
     \ 'css': ['css-languageserver', '--stdio'],
     \ 'scss': ['css-languageserver', '--stdio'],
+    \ 'go': ['go-langserver'],
     \ 'python': ['pyls'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'sh': ['bash-language-server', 'start'],
@@ -318,6 +319,7 @@ autocmd FileType cpp,cc,c,h,hpp,hh,go set ts=4 sw=0 noet
 autocmd FileType tex set tw=120 ts=4 sw=0 noet
 autocmd FileType ruby set ts=2 sw=2 et
 autocmd FileType sh,bash,zsh set ts=8 sw=8 noet
+autocmd FileType icinga2 set ts=2 sw=2 et
 
 " Text wrapping on Markdown files (et al.)
 autocmd FileType pandoc set tw=80 fo+=tcqron1j
