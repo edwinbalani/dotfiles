@@ -1,7 +1,7 @@
 DEFAULT_USER="$USER"
 
 # https://github.com/romkatv/powerlevel10k#batteries-included
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs pyenv virtualenv)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable anaconda vcs pyenv virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time disk_usage battery background_jobs load ram time)
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
