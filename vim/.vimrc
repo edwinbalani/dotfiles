@@ -153,7 +153,7 @@ set conceallevel=2
 
 " Set colour scheme
 let g:gruvbox_italic=1
-colorscheme gruvbox
+silent! colorscheme gruvbox
 set background=dark
 
 " Open new split panes to right and bottom, which feels more natural
