@@ -30,7 +30,7 @@ Plug 'ctrlpvim/ctrlp.vim', { 'on': [ 'CtrlPBuffer', 'CtrlPFunky', 'CtrlPLine', '
 Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
 if executable('elm')
-    Plug 'ElmCast/elm-vim'
+    Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 endif
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf'
