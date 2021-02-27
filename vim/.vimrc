@@ -42,6 +42,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'sh install.sh',
     \ }
 Plug 'junegunn/limelight.vim'
+Plug 'zah/nim.vim', { 'for': 'nim' }
 Plug 'lifepillar/pgsql.vim', { 'for': 'sql' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -176,6 +177,7 @@ let g:LanguageClient_serverCommands = {
     \ 'css': ['css-languageserver', '--stdio'],
     \ 'scss': ['css-languageserver', '--stdio'],
     \ 'go': ['go-langserver'],
+    \ 'nim': ['nimlsp'],
     \ 'python': ['pyls'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'sh': ['bash-language-server', 'start'],
