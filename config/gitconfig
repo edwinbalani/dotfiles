@@ -2,12 +2,19 @@
     email = git@balani.xyz
     name = Edwin Balani
     signingkey = D7EE79A3B90CDC22
+[commit]
+    verbose = true
 [push]
     default = simple
+[pull]
+    ff = only
 [core]
     autocrlf = input
-    editor = vim
+    commitGraph = true
+    editor = nvim
     excludesfile = ~/.gitignore
+[gc]
+    writeCommitGraph = true
 [alias]
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
