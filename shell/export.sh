@@ -32,7 +32,7 @@ fi
 
 [ -d "$HOME/.local/utilities" ] && \
     find "$HOME/.local/utilities" -mindepth 1 -maxdepth 1 -type d | \
-    while read plugin_path; do
+    while read -r plugin_path; do
         if [ -d "$plugin_path/bin" ]; then
             export PATH="$PATH:$plugin_path/bin"
         else
@@ -46,7 +46,9 @@ if ! (echo "$LESS" | grep -Fq -- '-R'); then export LESS="$LESS -R"; fi
 if ! (echo "$LESS" | grep -Fq -- '-MM'); then export LESS="$LESS -MM"; fi
 
 if command_exists lesspipe; then
+    # shellcheck disable=SC2046
     eval $(lesspipe)
 elif command_exists lessfile; then
+    # shellcheck disable=SC2046
     eval $(lessfile)
 fi

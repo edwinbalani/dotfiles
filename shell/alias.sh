@@ -19,6 +19,7 @@ fi
 # Use Knot dnsutils if needs be
 for cmd in dig nsupdate; do
     if command_exists k$cmd && ! command_exists $cmd; then
+        # shellcheck disable=SC2139
         alias $cmd=k$cmd
     fi
 done
@@ -41,13 +42,10 @@ fi
 
 # purdy quotes
 if command_exists fortune && command_exists cowsay; then
-    alias forsay="fortune | cowsay -n -W 80"
+    forsay () {
+        fortune "$@" | cowsay -n -W 80
+    }
     alias clear="command clear ; forsay"
-    # Only do `forsay` if it's an interactive shell
-    # (can break programs like rsync otherwise)
-    case $- in
-        *i*) fortune | cowsay -n -W 80;;
-    esac
 fi
 
 if command_exists python || command_exists python3; then
@@ -62,11 +60,6 @@ if command_exists python || command_exists python3; then
     # Jupyter
     alias nb="python -m jupyter notebook"
     alias nb3="python3 -m jupyter notebook"
-fi
-
-# Here be dragons (not really: https://github.com/github/hub)
-if command_exists hub; then
-    alias git=hub
 fi
 
 # https://termbin.com

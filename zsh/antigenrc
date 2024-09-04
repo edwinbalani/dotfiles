@@ -26,14 +26,12 @@ antigen bundles <<EOB
     pylint
     python
     quote
-    sudo
     svn
     systemd
     terraform
     urltools
     vagrant
 EOB
-# command_exists thefuck && antigen bundle thefuck
 command_exists tmuxinator && antigen bundle tmuxinator
 
 antigen bundle zsh-users/zsh-syntax-highlighting  # MUST be the last one

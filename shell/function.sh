@@ -4,7 +4,7 @@ sdas () {
     # Credit to mas90
     user="$1"
     shift
-    sudo -u "$user" XDG_RUNTIME_DIR=/run/user/`id -u "$user"` "$@"
+    sudo -u "$user" XDG_RUNTIME_DIR="/run/user/$(id -u "$user")" "$@"
 }
 
 # Update dotfiles on remote systems (how ~meta~ is that?)
@@ -47,12 +47,6 @@ if command_exists tmux 2>&1; then
     alias tls="tmux ls"
 fi
 
-# thefuck (if it's installed)
-if command_exists thefuck; then
-    eval "$(thefuck --alias)"
-    eval "$(thefuck --alias oops)"  # Keeping it SFW
-fi
-
 # Mount and unmount SSHFS
 mnt () {
   host=$1
@@ -62,7 +56,7 @@ mnt () {
   umnt "$host"
   mkdir -p "$mntpoint"
   sshfs "$host:$folder" "${@}" "$mntpoint"
-  cd "$mntpoint"
+  cd "$mntpoint" || true
 }
 
 umnt () {

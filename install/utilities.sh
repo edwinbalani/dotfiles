@@ -22,13 +22,3 @@ install_plugin git-fire "https://github.com/edwinbalani/git-fire.git"
 if command_exists zathura && command_exists pandoc && command_exists vim; then
     install_plugin notes "https://github.com/edwinbalani/notes.git"
 fi
-
-# Install thefuck only if we have Python 3; its support for Python 2 is deprecated
-for py in python3 python; do
-    if [ "$($py -c 'from __future__ import print_function; import sys; print(sys.version[0])')" -ge 3 ]; then
-        printf "import sys\ntry:\n import pip\nexcept ImportError:\n sys.exit(1)\nelse:\n sys.exit(0)" | \
-            $py >/dev/null 2>&1 && \
-            $py -m pip install --user thefuck
-        break
-    fi
-done
