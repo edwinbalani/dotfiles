@@ -85,3 +85,13 @@ pdf_bw () {
     -dBATCH \
     "$1"
 }
+
+quikasdf () {
+    local tool="$1"
+    if [ -z "$1" ]; then
+        asdf plugin list-all
+    else
+        local version="${2:-latest}"
+        asdf plugin add "$tool" && asdf install "$tool" "$version" && asdf global "$tool" "$version"
+    fi
+}
