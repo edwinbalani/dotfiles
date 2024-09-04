@@ -29,8 +29,6 @@ antigen bundles <<EOB
     systemd
     terraform
     urltools
-    vagrant
 EOB
-command_exists tmuxinator && antigen bundle tmuxinator
 
 antigen bundle zsh-users/zsh-syntax-highlighting  # MUST be the last one
