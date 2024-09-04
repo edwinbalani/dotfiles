@@ -8,9 +8,20 @@
 #    liblmdb-dev \
 #    libncursesw5-dev \
 #    libnotmuch-dev \
+#    libsasl2-dev \
 #    libssl-dev \
 #    libxml2-utils \
 #    notmuch \
-#    xsltproc
+#    xsltproc \
+#    liblua5.4-dev \
+#    libzstd-dev
 
-./configure --prefix=/usr/local --notmuch --ssl --lmdb --gpgme --pcre2
+./configure --prefix=/usr/local \
+    --gpgme \
+    --lmdb \
+    --lua \
+    --notmuch \
+    --pcre2 \
+    --sasl \
+    --ssl \
+    --zstd
