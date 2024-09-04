@@ -19,7 +19,6 @@ antigen bundles <<EOB
     history
     httpie
     jsontools
-    lukechilds/zsh-nvm
     pass
     perms
     pip
