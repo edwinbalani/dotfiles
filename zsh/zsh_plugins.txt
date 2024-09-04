@@ -16,7 +16,9 @@ ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/git-extras
 ohmyzsh/ohmyzsh path:plugins/history
 ohmyzsh/ohmyzsh path:plugins/httpie     kind:fpath
+ohmyzsh/ohmyzsh path:plugins/jfrog
 ohmyzsh/ohmyzsh path:plugins/jsontools
+ohmyzsh/ohmyzsh path:plugins/kubectl
 ohmyzsh/ohmyzsh path:plugins/pass       kind:fpath
 ohmyzsh/ohmyzsh path:plugins/perms
 ohmyzsh/ohmyzsh path:plugins/pip
