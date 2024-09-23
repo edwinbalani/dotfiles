@@ -6,3 +6,6 @@ if is_shell zsh; then
     fi
     $LINK_CMD "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
 fi
+
+# Directory for random local fpath additions
+mkdir -p "$HOME/.zfunc"
