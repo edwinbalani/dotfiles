@@ -86,12 +86,16 @@ pdf_bw () {
     "$1"
 }
 
-quikasdf () {
-    local tool="$1"
-    if [ -z "$1" ]; then
-        asdf plugin list-all
-    else
-        local version="${2:-latest}"
-        asdf plugin add "$tool" && asdf install "$tool" "$version" && asdf global "$tool" "$version"
-    fi
-}
+if command_exists mise; then
+    alias quikasdf='mise use --global'
+else
+    quikasdf () {
+        local tool="$1"
+        if [ -z "$1" ]; then
+            asdf plugin list-all
+        else
+            local version="${2:-latest}"
+            asdf plugin add "$tool" && asdf install "$tool" "$version" && asdf global "$tool" "$version"
+        fi
+    }
+fi
