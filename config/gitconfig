@@ -1,3 +1,5 @@
+[include]
+	path = ~/.gitconfig.local
 [user]
     email = git@balani.xyz
     name = Edwin Balani
