@@ -4,7 +4,6 @@ fpath=($ZSH_CACHE_DIR/completions $fpath $HOME/.zfunc)
 autoload -Uz compinit && compinit
 
 export NVM_LAZY_LOAD=true
-export ASDF_DIR="$HOME/.local/utilities/asdf"
 
 [[ -x "$HOME/.local/bin/mise" ]] && eval "$("$HOME/.local/bin/mise" activate zsh)"
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"

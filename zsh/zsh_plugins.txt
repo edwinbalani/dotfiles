@@ -4,9 +4,6 @@ romkatv/powerlevel10k kind:fpath
 # oh-my-zsh library
 ohmyzsh/ohmyzsh path:lib
 
-# init asdf early because other completion detection depends on it
-ohmyzsh/ohmyzsh path:plugins/asdf
-
 # oh-my-zsh plugins
 ohmyzsh/ohmyzsh path:plugins/argocd
 ohmyzsh/ohmyzsh path:plugins/aws
