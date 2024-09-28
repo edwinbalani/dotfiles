@@ -3,10 +3,14 @@ autoload zmv
 # opam configuration
 test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" >/dev/null 2>/dev/null
 
-# Workaround for https://github.com/nvm-sh/nvm/issues/3007
-# suggested in https://github.com/nvm-sh/nvm/issues/3007#issuecomment-1405002512
 export NVM_DIR="$HOME/.nvm"
-[[ -e "$NVM_DIR" ]] && . "$NVM_DIR/nvm.sh"
+if [[ -e "$HOME/.nvm" ]]; then
+    # https://github.com/nvm-sh/nvm/issues/2362#issuecomment-746108881
+    setopt no_aliases
+    export NVM_DIR="$HOME/.nvm"
+    . "$NVM_DIR/nvm.sh"
+    setopt aliases
+fi
 
 typeset -g HYPHEN_INSENSITIVE="true"
 typeset -g COMPLETION_WAITING_DOTS="true"
