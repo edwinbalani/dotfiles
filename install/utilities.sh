@@ -16,13 +16,24 @@ install_plugin() {
     fi
 }
 
-install_plugin asdf "https://github.com/asdf-vm/asdf.git"
-if [ ! -e "$HOME/.asdf" ]; then
-    $LINK_CMD "$HOME/.local/utilities/asdf" "$HOME/.asdf"
-fi
+# Install mise(-en-place), a dev environment tool
+# https://mise.jdx.dev/
+"$DOTFILES_DIR/vendor/mise-install.sh"
 
-# TODO asdf plugin for gibo
-#install_plugin gibo "https://github.com/simonwhitaker/gibo.git"
+# for the purposes of this install script, get a direct path to the mise binary
+# rather than fiddling with PATH or running 'mise activate'
+mise_bin="${MISE_INSTALL_PATH:-$HOME/.local/bin/mise}"
+
+# Install Rust toolchain and its management tool, rustup
+"$DOTFILES_DIR/vendor/rustup-init.sh" -y --no-modify-path
+
+# Install ubi, the "Universal Binary Installer"
+# https://github.com/houseabsolute/ubi
+TARGET="$HOME/.local/bin" "$DOTFILES_DIR/vendor/bootstrap-ubi.sh"
+
+"$mise_bin" settings set experimental true  # required for ubi use
+"$mise_bin" use --global ubi:simonwhitaker/gibo
+"$mise_bin" use --global ubi:arxanas/git-branchless
 
 if command_exists zathura && command_exists pandoc && (command_exists vim || command_exists nvim); then
     install_plugin notes "https://github.com/edwinbalani/notes.git"

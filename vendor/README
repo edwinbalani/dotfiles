@@ -1,0 +1,9 @@
+This directory contains vendored copies of installers that you are encourage to
+run with 'curl | sh'.  To avoid building that pattern into these dotfiles'
+installer, a static copy of each install script is kept here.
+
+These install scripts invariably download content from the internet, but here
+they can be vetted by interested parties before running ~/dotfiles/install.sh.
+Assuming the integrity of this git repo, there remains less opportunity for the
+install scripts themselves to be tampered with, even if/when the webserver
+you're encourage to curl it from is compromised.
