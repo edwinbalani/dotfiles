@@ -87,7 +87,13 @@ pdf_bw () {
 }
 
 if command_exists mise; then
-    alias quikasdf='mise use --global'
+    quikasdf () {
+        if [ -z "$1" ]; then
+            mise registry
+        else
+            mise use --global "$@"
+        fi
+    }
 else
     quikasdf () {
         local tool="$1"
