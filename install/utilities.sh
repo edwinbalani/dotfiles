@@ -24,9 +24,6 @@ install_plugin() {
 # rather than fiddling with PATH or running 'mise activate'
 export PATH="${MISE_INSTALL_PATH:-$HOME/.local/bin}:$PATH"
 
-# Install Rust toolchain and its management tool, rustup
-"$DOTFILES_DIR/vendor/rustup-init.sh" -y --no-modify-path
-
 # Install ubi, the "Universal Binary Installer"
 # https://github.com/houseabsolute/ubi
 TARGET="$HOME/.local/bin" "$DOTFILES_DIR/vendor/bootstrap-ubi.sh"
