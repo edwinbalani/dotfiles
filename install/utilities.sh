@@ -22,7 +22,7 @@ install_plugin() {
 
 # for the purposes of this install script, get a direct path to the mise binary
 # rather than fiddling with PATH or running 'mise activate'
-mise_bin="${MISE_INSTALL_PATH:-$HOME/.local/bin/mise}"
+export PATH="${MISE_INSTALL_PATH:-$HOME/.local/bin}:$PATH"
 
 # Install Rust toolchain and its management tool, rustup
 "$DOTFILES_DIR/vendor/rustup-init.sh" -y --no-modify-path
@@ -31,9 +31,13 @@ mise_bin="${MISE_INSTALL_PATH:-$HOME/.local/bin/mise}"
 # https://github.com/houseabsolute/ubi
 TARGET="$HOME/.local/bin" "$DOTFILES_DIR/vendor/bootstrap-ubi.sh"
 
-"$mise_bin" settings set experimental true  # required for ubi use
-"$mise_bin" use --global ubi:simonwhitaker/gibo
-"$mise_bin" use --global ubi:arxanas/git-branchless
+# This may result in double-entry of ~/.local/bin to PATH, if an override of
+# $MISE_INSTALL_PATH was not supplied.  That's fine.
+export PATH="$HOME/.local/bin:$PATH"
+
+mise settings set experimental true  # required for ubi use
+mise use --global ubi:simonwhitaker/gibo
+mise use --global ubi:arxanas/git-branchless
 
 if command_exists zathura && command_exists pandoc && (command_exists vim || command_exists nvim); then
     install_plugin notes "https://github.com/edwinbalani/notes.git"
