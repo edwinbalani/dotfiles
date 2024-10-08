@@ -1,5 +1,8 @@
 ########## PATH and exports
-if command_exists vim; then
+if command_exists nvim; then
+    export EDITOR=nvim
+    export VISUAL=nvim
+elif command_exists vim; then
     export EDITOR=vim
     export VISUAL=vim
 elif command_exists vi; then
