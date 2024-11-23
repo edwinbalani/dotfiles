@@ -39,3 +39,5 @@ mise use --global ubi:arxanas/git-branchless
 if command_exists zathura && command_exists pandoc && (command_exists vim || command_exists nvim); then
     install_plugin notes "https://github.com/edwinbalani/notes.git"
 fi
+
+install_plugin git-hires-merge "https://github.com/paulaltin/git-hires-merge.git"
