@@ -78,15 +78,15 @@ get_checksum() {
 
 	# For current version use static checksum otherwise
 	# use checksum from releases
-	if [ "$version" = "v2024.9.11" ]; then
-		checksum_linux_x86_64="be6988a5e1c4db9cef4eaf83f8ab9bc84be3f1903acf5f13f21729ecf871a4c6  ./mise-v2024.9.11-linux-x64.tar.gz"
-		checksum_linux_x86_64_musl="2323e2f42f13cdbb5cc02ff85ffb18bed133ec5bf7bf58a34e89c95708484858  ./mise-v2024.9.11-linux-x64-musl.tar.gz"
-		checksum_linux_arm64="26745459d73976b70c7340d2765bb6ac67b9ec593e219a071f846fb4e6fe54f4  ./mise-v2024.9.11-linux-arm64.tar.gz"
-		checksum_linux_arm64_musl="8fc39e49955881da65b497975a3dab6e299fd7603b8f87d79c62eb316e24197c  ./mise-v2024.9.11-linux-arm64-musl.tar.gz"
-		checksum_linux_armv7="86670e986c4ec01a4a2c51712a58a7090b5d182c4208f8e24992f80d25b6ba48  ./mise-v2024.9.11-linux-armv7.tar.gz"
-		checksum_linux_armv7_musl="1609599b17465d234d0f1f65159833be936c5a091f8a4e13653dc8f15c92060c  ./mise-v2024.9.11-linux-armv7-musl.tar.gz"
-		checksum_macos_x86_64="93da399907dec646878634ac74e6fd541dc3d3e54347bc237c1298c15ae6020a  ./mise-v2024.9.11-macos-x64.tar.gz"
-		checksum_macos_arm64="04e1220c5cb86c652cba9391f1c4e11687c5d1e59073780dd83546eff24ccb21  ./mise-v2024.9.11-macos-arm64.tar.gz"
+	if [ "$version" = "v2024.11.26" ]; then
+		checksum_linux_x86_64="3342485a44f7dbf30e9e1c5e79d2e36eb4f34dbbe77c033e2c41088cda953a31  ./mise-v2024.11.26-linux-x64.tar.gz"
+		checksum_linux_x86_64_musl="322411e7d62c3d36e5244db33e454cc739fc2f9aab757b84050c0d17db2b3ff2  ./mise-v2024.11.26-linux-x64-musl.tar.gz"
+		checksum_linux_arm64="183b634667010440e38c4d57fefad8ede45e24c99d751909928f382e890cbbc1  ./mise-v2024.11.26-linux-arm64.tar.gz"
+		checksum_linux_arm64_musl="8d71a10b708c606c398636b400d09125f4b59e019aebd1ef5d98aa1db5540398  ./mise-v2024.11.26-linux-arm64-musl.tar.gz"
+		checksum_linux_armv7="781fe199cf389bd27dd40d2d9103224a6bc67f9a311ed4c71f4e6af261f97224  ./mise-v2024.11.26-linux-armv7.tar.gz"
+		checksum_linux_armv7_musl="d019e0688bdea681f70d4642a708544c5be3025cd59109b0f597c4b80cc80035  ./mise-v2024.11.26-linux-armv7-musl.tar.gz"
+		checksum_macos_x86_64="a6f908f768343becd629bab5f515e4231239f097973dffedec2c05cdd34925a9  ./mise-v2024.11.26-macos-x64.tar.gz"
+		checksum_macos_arm64="df65ab1b0ae554bc561d787706013a0af8fef26222a78228269cf48f041c8bf5  ./mise-v2024.11.26-macos-arm64.tar.gz"
 
 		if [ "$os" = "linux" ]; then
 			if [ "$arch" = "x64" ]; then
@@ -118,7 +118,7 @@ get_checksum() {
 	else
 		if command -v curl >/dev/null 2>&1; then
 			debug ">" curl -fsSL "$url"
-			checksums="$(curl -fsSL "$url")"
+			checksums="$(curl --compressed -fsSL "$url")"
 		else
 			if command -v wget >/dev/null 2>&1; then
 				debug ">" wget -qO - "$url"
@@ -165,7 +165,7 @@ download_file() {
 }
 
 install_mise() {
-	version="${MISE_VERSION:-v2024.9.11}"
+	version="${MISE_VERSION:-v2024.11.26}"
 	os="$(get_os)"
 	arch="$(get_arch)"
 	install_path="${MISE_INSTALL_PATH:-$HOME/.local/bin/mise}"
