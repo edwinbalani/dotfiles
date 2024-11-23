@@ -36,6 +36,7 @@ mise settings set experimental true  # required for ubi use
 mise use --global ubi:simonwhitaker/gibo
 mise use --global ubi:arxanas/git-branchless
 mise use --global fd
+mise use --global fzf
 
 if command_exists zathura && command_exists pandoc && (command_exists vim || command_exists nvim); then
     install_plugin notes "https://github.com/edwinbalani/notes.git"
