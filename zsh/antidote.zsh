@@ -14,4 +14,6 @@ export FZF_DEFAULT_OPTS="--ansi"
 source "$HOME/.antidote/antidote.zsh"
 antidote load
 
+unalias gg  # collision with grip-grab
+
 autoload -Uz promptinit && promptinit && prompt powerlevel10k
