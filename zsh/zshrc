@@ -22,7 +22,7 @@ else
     for component in export alias function; do
         source "$DOTFILES_DIR/shell/$component.sh"
     done
-    for component in powerlevel10k antidote fzf misc; do
+    for component in powerlevel10k antidote misc; do
         source "$DOTFILES_DIR/zsh/$component.zsh"
     done
     if [ -f "$HOME/.zshrc.local" ]; then
