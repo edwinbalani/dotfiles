@@ -43,8 +43,6 @@ fi
         fi
     done
 
-export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
-
 if ! (echo "$LESS" | grep -Fq -- '-R'); then export LESS="$LESS -R"; fi
 if ! (echo "$LESS" | grep -Fq -- '-MM'); then export LESS="$LESS -MM"; fi
 
