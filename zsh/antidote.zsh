@@ -11,6 +11,10 @@ export NVM_LAZY_LOAD=true
 export FZF_CTRL_T_COMMAND="fd --type file --hidden --exclude .git --color=always"
 export FZF_DEFAULT_OPTS="--ansi"
 
+if ! command_exists fzf; then
+    FZF_BASE="$(mise where fzf)"
+fi
+
 source "$HOME/.antidote/antidote.zsh"
 antidote load
 
