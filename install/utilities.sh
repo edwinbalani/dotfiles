@@ -24,17 +24,12 @@ install_plugin() {
 # rather than fiddling with PATH or running 'mise activate'
 export PATH="${MISE_INSTALL_PATH:-$HOME/.local/bin}:$PATH"
 
-# Install ubi, the "Universal Binary Installer"
-# https://github.com/houseabsolute/ubi
-TARGET="$HOME/.local/bin" "$DOTFILES_DIR/vendor/bootstrap-ubi.sh"
-
 # This may result in double-entry of ~/.local/bin to PATH, if an override of
 # $MISE_INSTALL_PATH was not supplied.  That's fine.
 export PATH="$HOME/.local/bin:$PATH"
 
-mise settings set experimental true  # required for ubi use
-mise use --global ubi:simonwhitaker/gibo
-mise use --global ubi:arxanas/git-branchless
+mise use --global github:simonwhitaker/gibo
+mise use --global github:arxanas/git-branchless
 mise use --global fd
 mise use --global fzf
 
