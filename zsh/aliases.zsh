@@ -31,3 +31,11 @@ alias mv='mv -i'
 
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
+if command_exists git-branchless; then
+    # Using an opaque function rather than an alias preserves command-line
+    # completions (zsh expands aliases before running completion)
+    git () {
+        git-branchless wrap -- "$@"
+    }
+fi

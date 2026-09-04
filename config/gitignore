@@ -13,3 +13,12 @@ tags.temp
 
 # direnv .envrc file
 .envrc
+
+.null-ls_*.py
+
+# Kotlin language server
+kls_database.db
+
+.claude/settings.local.json
+
+mise.local.toml

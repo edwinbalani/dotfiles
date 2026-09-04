@@ -16,6 +16,7 @@
 [gc]
     writeCommitGraph = true
 [alias]
+    bl = branchless
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     out = fire
@@ -28,6 +29,17 @@
     source = remote get-url origin
     ffpull = pull --ff-only
     ffmerge = merge --ff-only
+
+    tree-of = show --format=tformat:%t --no-patch
+    longtree-of = show --format=tformat:%T --no-patch
+    ctree = "!sh -c 'ref=\"${1:-HEAD}\"; shift; git ls-tree \"$(git tree-of \"${ref}\")\" \"$@\"' -"
+
+    psup = push --set-upstream origin "$(git branch --show-current)"
+    # h/t kjetilho:
+    psmr = psup -o merge_request.create -o "merge_request.target=$(git branch --show-current)"
+
+    # https://github.com/paulaltin/git-hires-merge
+    hrm = hires-merge
 [color]
 	ui = auto
 [merge]
