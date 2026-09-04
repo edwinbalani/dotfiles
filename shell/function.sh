@@ -105,3 +105,40 @@ else
         fi
     }
 fi
+
+
+# Wrangling EC2 instances
+asg-instances () {
+    aws autoscaling describe-auto-scaling-instances --query 'AutoScalingInstances[*].{ASG: AutoScalingGroupName, Instance: InstanceId, State: LifecycleState}' --output table "$@" | cat
+}
+
+instance-ips () {
+    aws ec2 describe-instances --filters Name=instance-state-name,Values=running --query 'Reservations[*].Instances[*].{Instance:InstanceId,IP:PrivateIpAddress,Name:Tags[?Key==`Name`]|[0].Value}' --output table "$@" | cat
+}
+
+ish () {
+    instance-ips "$@" --output text | fzf --nth 3 --bind 'enter:become(ssh {1})'
+}
+
+instance-log () {
+    aws ec2 get-console-output --output text --query Output --instance-id "$@"
+}
+
+# View the document.xml (or another member) of an Open Packaging Conventions
+# (OPC) container, e.g. an Office Open XML (OOXML) document.
+oxml () {
+    local pkg="$1"
+    local member="${2:-document.xml}"
+    # quikasdf pipx:opc-diag
+    opc browse "$pkg" "$member" | bat --language=xml
+}
+
+
+# kubectl helpers
+
+# Forcefully remove all the .metadata.finalizers from a particular type of resource.
+# Example: unfinalise -n mynamespace gitrepositories.source.toolkit.fluxcd.io
+unfinalise () {
+        kubectl get -o go-template='{{range .items}}{{.metadata.name}}
+    {{end}}' "$@" | xargs -n1 kubectl patch --type=json -p '[{"op": "replace", "path": "/metadata/finalizers", "value":[]}]' "$@"
+}
