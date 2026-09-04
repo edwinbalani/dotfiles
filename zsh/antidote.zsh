@@ -5,7 +5,6 @@ autoload -Uz compinit && compinit
 
 export NVM_LAZY_LOAD=true
 
-[[ -x "$HOME/.local/bin/mise" ]] && eval "$("$HOME/.local/bin/mise" activate zsh)"
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 export FZF_CTRL_T_COMMAND="fd --type file --hidden --exclude .git --color=always"
