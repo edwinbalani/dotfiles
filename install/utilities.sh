@@ -24,6 +24,8 @@ install_plugin() {
 # rather than fiddling with PATH or running 'mise activate'
 export PATH="${MISE_INSTALL_PATH:-$HOME/.local/bin}:$PATH"
 
+mise self-update --yes
+
 # This may result in double-entry of ~/.local/bin to PATH, if an override of
 # $MISE_INSTALL_PATH was not supplied.  That's fine.
 export PATH="$HOME/.local/bin:$PATH"
